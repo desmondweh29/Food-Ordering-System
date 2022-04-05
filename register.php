@@ -38,7 +38,7 @@
             </div>
 
             <button type="submit" class="btn-green btn-left">Register</button>
-            <button class="btn-red btn-right" onclick="document.location='login.php'">Back</button>
+            <button type="button" class="btn-red btn-right" onclick="document.location='login.php'">Back</button>
         </form>
     </div>
 
