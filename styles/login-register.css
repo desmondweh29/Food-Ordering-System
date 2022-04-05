@@ -12,7 +12,7 @@ body, html {
 }
 
 .bg-image {
-    background-image: url('./images/photo-1606787366850-de6330128bfc.jpg');
+    background-image: url('../images/photo-1606787366850-de6330128bfc.jpg');
     filter: blur(8px);
     -webkit-filter: blur(8px);
     height: 100%;

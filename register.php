@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset = "utf-8">
-    <link rel="stylesheet" href="login-register.css">
-    <script type="text/javascript" src="scripts/jquery-3.6.0.js" defer></script>
+    <link rel="stylesheet" href="styles/login-register.css">
     <script type="text/javascript" src="scripts/register.js" defer></script>
     <title>YUM! - Register</title>
   </head>
