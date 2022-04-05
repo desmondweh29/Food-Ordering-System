@@ -10,7 +10,16 @@ session_start();
 
 
         <div id="navbar">
-            <a href="adminlogin.php" class="navlink">login</a>
+            <a href="login.php" class="navlink">login</a>
+            <a href="logout.php">logout</a>
+        </div>
+
+        <div>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label>Select Image File:</label>
+        <input type="file" name="image">
+         <input type="submit" name="submit" value="Upload">
+</form>
         </div>
     </head>
 

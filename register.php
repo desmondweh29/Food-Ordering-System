@@ -20,7 +20,7 @@
             <p>Register</p>
         </div>
 
-        <form id= "register-form" action="" method="post">
+        <form id= "register-form" action="./include/registercheck.php" method="post">
             <div class="email-group">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email..." required/>
@@ -36,7 +36,7 @@
                 <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm your password..." required/>
             </div>
 
-            <button type="submit" class="btn-green btn-left">Register</button>
+            <button type="submit" class="btn-green btn-left" name ="register">Register</button>
             <button type="button" class="btn-red btn-right" onclick="document.location='login.php'">Back</button>
         </form>
     </div>

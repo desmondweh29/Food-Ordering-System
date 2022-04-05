@@ -19,7 +19,7 @@
             <p>Login</p>
         </div>
 
-        <form id= "login-form" action="" method="post">
+        <form id= "login-form" action="./include/logincheck.php" method="post">
             <div class="email-group">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email..." required/>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="btn-group">
-                <button type="submit" class="btn-green btn-left">Login</button>
+                <button type="submit" class="btn-green btn-left" name="login">Login</button>
                 <button type="button" class="btn-red btn-right" onclick="document.location='index.php'">Back</button>
             </div>
         </form>
