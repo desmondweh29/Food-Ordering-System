@@ -14,7 +14,7 @@ function invalidUIDandPassword($name,$password){
 }
 
 function invalidInput($name,$password){
-    if(!preg_match("/^[a-zA-Z0-9]*S/",$name)){
+    if(!preg_match("/^[a-zA-Z0-9]*S/",$name) || !preg_match("/^[a-zA-Z0-9]*S/",$password)){
         return true;
     }else{
         return false;
