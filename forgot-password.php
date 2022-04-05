@@ -19,14 +19,14 @@
             <p>Forgot password</p>
         </div>
 
-        <form id= "forgot-password-form" action="" method="post">
+        <form id= "forgot-password-form" action="./include/forgot-password.handler.php" method="post">
             <div class="email-group">
                 <label for="email">Enter your email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email..." required/>
             </div>
 
             <div class="btn-group">
-                <button type="submit" class="btn-green btn-left">Submit</button>
+                <button type="submit" class="btn-green btn-left" name="submit" >Submit</button>
                 <button type="button" class="btn-red btn-right" onclick="document.location='login.php'">Back</button>
             </div>
         </form>

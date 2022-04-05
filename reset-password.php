@@ -31,7 +31,7 @@
                 <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm your password..." required/>
             </div>
 
-            <button type="submit" class="btn-green btn-left">Submit</button>
+            <button type="submit" class="btn-green btn-left" name="submit">Submit</button>
             <button type="button" class="btn-red btn-right" onclick="document.location='index.php'">Home</button>
         </form>
     </div>
