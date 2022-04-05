@@ -38,7 +38,7 @@
 
         <div class="login-link">
             <a class="text-left" href="./register.php">New here? Register now!</a>
-            <a class="text-right" href="./forget-password.php">Forgot password? Click here!</a>
+            <a class="text-right" href="./forgot-password.php">Forgot password? Click here!</a>
         </div>
 
 
