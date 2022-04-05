@@ -26,7 +26,7 @@ function fetchUIDPass($conn,$username){
     $stmt = mysqli_stmt_init($conn);
     
     if(!mysqli_stmt_prepare($stmt,$sql)){
-        header("location: ../adminlogin.php?error=stmtfailed");
+        header("location: ../login.php?error=stmtfailed");
         exit();
     }
 
@@ -47,7 +47,7 @@ function fetchUIDPass($conn,$username){
 function loginUser($conn,$username,$password){
     $UIDarray=fetchUIDPass($conn,$username);
     if($UIDarray === false){
-        header("location: ../adminlogin.php?error=login");
+        header("location: ../login.php?error=login");
         exit();
     }
     $UPass = $UIDarray["adminPass"];
@@ -58,7 +58,7 @@ function loginUser($conn,$username,$password){
         header("location: ../index.php");
         exit();
     }else{
-        header("location: ../adminlogin.php?error=InvalidPassword");
+        header("location: ../login.php?error=InvalidPassword");
         exit();
 
     }
@@ -67,7 +67,7 @@ function loginUser($conn,$username,$password){
 function registerUser($conn,$username,$password){
     $UIDarray = fetchUIDPass($conn,$username);
     if(!empty($UIDarray)){
-        header("location: ../adminlogin.php?error=useralreadyexist");
+        header("location: ../login.php?error=useralreadyexist");
         exit();
     }
 
@@ -75,7 +75,7 @@ function registerUser($conn,$username,$password){
     $stmt = mysqli_stmt_init($conn);
     
     if(!mysqli_stmt_prepare($stmt,$sql)){
-        header("location: ../adminlogin.php?error=stmtfailed");
+        header("location: ../login.php?error=stmtfailed");
         exit();
     }
 
