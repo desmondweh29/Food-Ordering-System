@@ -4,8 +4,7 @@
     <meta charset = "utf-8">
     <link rel="stylesheet" href="login-register.css">
     <script type="text/javascript" src="scripts/jquery-3.6.0.js" defer></script>
-    <script type="text/javascript" src="scripts/register.js" defer></script>
-    <title>YUM! - Register</title>
+    <title>YUM! - Login</title>
   </head>
 
   <body>
@@ -18,10 +17,10 @@
         </div>
 
         <div class="title">
-            <p>Register</p>
+            <p>Login</p>
         </div>
 
-        <form id= "register-form" action="" method="post">
+        <form id= "login-form" action="" method="post">
             <div class="email-group">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email..." required/>
@@ -32,14 +31,18 @@
                 <input type="password" id="password" name="password" placeholder="Enter your password..." required/>
             </div>
 
-            <div class="password-confirm-group">
-                <label for="password_confirm">Confirm Password</label>
-                <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm your password..." required/>
+            <div class="btn-group">
+                <button type="submit" class="btn-green btn-left">Login</button>
+                <button class="btn-red btn-right" onclick="document.location='index.php'">Back</button>
             </div>
-
-            <button type="submit" class="btn-green btn-left">Register</button>
-            <button class="btn-red btn-right" onclick="document.location='login.php'">Back</button>
         </form>
+
+        <div class="login-link">
+            <a class="text-left" href="./register.php">New here? Register now!</a>
+            <a class="text-right" href="./forget-password.php">Forgot password? Click here!</a>
+        </div>
+
+
     </div>
 
   </body>

@@ -123,4 +123,24 @@ label {
 
  .btn-right {
     float: right;
- }
+}
+
+.btn-group {
+    display: block;
+    width: 100%;
+    height: 85px;
+}
+
+.login-link {
+    width: 100%;
+    height: 25px;
+    margin-top: 15px;
+}
+
+.text-left {
+    float: left;
+}
+
+.text-right {
+    float: right;
+}
