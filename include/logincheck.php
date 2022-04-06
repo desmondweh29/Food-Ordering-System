@@ -5,8 +5,6 @@ if(isset($_POST["login"])){
     $email = $_POST["email"];
     $password = $_POST["password"];
     
-
-
     require_once 'db_handler.php';
     require_once 'generalErrorHandling.php';
 

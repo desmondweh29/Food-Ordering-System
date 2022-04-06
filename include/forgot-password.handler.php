@@ -7,9 +7,17 @@ if(isset($_POST["submit"] ) && $_POST["email"]){
     $email = filter_var($email,FILTER_SANITIZE_EMAIL);
     $email = filter_var($email,FILTER_VALIDATE_EMAIL);
 
+    if (emptyInputForgetPassword($email) !== false) {
+        header("location: ../forgot-password.php?error=emptyinput");
+        exit();
+    }
+    if (invalidEmail($email) !== false) {
+        header("location: ../forgot-password.php?error=invalidemail");
+        exit();
+    }
     if(emailExists($conn,$email) === false){
         //insert error handling for email not found in db
-
+        header("location: ../forgot-password.php?error=emailnotexist");
         exit();
     }
     $token = bin2hex(random_bytes(50));

@@ -100,6 +100,15 @@ function loginUser($conn,$email,$password){
     }
 }
 
+function emptyInputForgetPassword ($email)
+{
+    if (empty($email)) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function fetchtoken($conn,$email,$token,$newpass){
     //change this to new db when done
     $sql_query="SELECT email from password_reset where token = '$token'";

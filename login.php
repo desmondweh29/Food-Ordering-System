@@ -41,6 +41,9 @@
                 else if ($_GET["error"] == "wronglogin") {
                     echo "<p class=\"error\">Wrong email/password!</p>";
                 }
+                else if ($_GET["error"] == "stmtfailed") {
+                    echo "<p class=\"error\">Something went wrong, try again!</p>";
+                }
             }
             else
             {

@@ -25,6 +25,27 @@
                 <input type="text" id="email" name="email" placeholder="Enter your email..." />
             </div>
 
+            <?php
+            if (isset($_GET["error"])) {
+                if($_GET["error"] == "emptyinput") {
+                    echo "<p class=\"error\">Fill in all fields!</p>";
+                }
+                else if ($_GET["error"] == "invalidemail") {
+                    echo "<p class=\"error\">Enter a valid email!</p>";
+                }
+                else if ($_GET["error"] == "emailnotexist") {
+                    echo "<p class=\"error\">Email is not registered!</p>";
+                }
+                else if ($_GET["error"] == "stmtfailed") {
+                    echo "<p class=\"error\">Something went wrong, try again!</p>";
+                }
+            }
+            else
+            {
+                echo "<br>";
+            }
+            ?>
+
             <div class="btn-group">
                 <button type="submit" class="btn-green btn-left" name="submit" >Submit</button>
                 <button type="button" class="btn-red btn-right" onclick="document.location='login.php'">Back</button>
