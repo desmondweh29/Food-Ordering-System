@@ -28,12 +28,12 @@
                                 1191303027
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Change Password</a></li>
-                                <li><a class="dropdown-item" href="#">Order History</a></li>
+                                <li><a class="dropdown-item" href="./change-password.php">Change Password</a></li>
+                                <li><a class="dropdown-item" href="./order-history.php">Order History</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                <li><a class="dropdown-item" href="./include/logout.php">Sign out</a></li>
                             </ul>
                             <!-- End of .dropdown-menu  -->
                         </li>
