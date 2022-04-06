@@ -8,7 +8,10 @@ require './libraries/PHPMailer/src/PHPMailer.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-function sendMail($token){
+
+//$token -randomly generated token stored in database
+//$email - receipient email, currently using mailtrap.io 
+function sendMail($token,$email){
 try {
     $mail = new PHPMailer();
     $mail->isSMTP();
@@ -20,7 +23,7 @@ $mail->SMTPSecure = 'tls';
 $mail->Port = 2525;
 
 $e_subject = "Reset your website on test.com";
-$e_msg = "Hi there, click on this <a href=\"new_password.php?token=".$token."\">link</a>to reset your password.";
+$e_msg = "Hi there, click on this <a href=\"http://localhost/Webtech/PHP/Food-Ordering-System-/reset-password.php?token=".$token."&email=".$email."\">link</a>to reset your password.";
 $e_msg = wordwrap($e_msg,70);//split it to new line if too long
 $e_header = "From: info@yum.com";
 
@@ -34,6 +37,6 @@ $mail->isHTML(true);
 $mail->Body = $e_msg;
 $mail->send();
 echo 'Message has been sent';
-} catch (\Throwable $th) {
+} catch (Exception $e) {
     echo "Message was not sent. Mailer Error: {$mail->ErrorInfo}";
 }}

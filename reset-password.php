@@ -16,11 +16,12 @@
             <img class="logo-register" src="./images/Yum!.png" alt="Yum! logo"/>
         </div>
 
+
         <div class="title">
             <p>Reset password</p>
         </div>
 
-        <form id= "register-form" action="" method="post">
+        <form id= "register-form" method="post">
             <div class="password-group">
                 <label for="password">Enter New Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password..." required/>
@@ -35,6 +36,25 @@
             <button type="button" class="btn-red btn-right" onclick="document.location='index.php'">Home</button>
         </form>
     </div>
+    <?php
+          if(isset($_GET["token"])){
+            require_once './include/db_handler.php';
+            require_once './include/generalErrorHandling.php';
+            $token = $_GET["token"];
+            $email = $_GET["email"];
+              if(isset($_POST["submit"])){
+                $newpass = $_POST["password"];
+
+                fetchtoken($conn,$email,$token,$newpass);
+                //return to register page?
+                //need confirmation?
+                header("location: ./register.php");
+                exit();
+              }
+            }else{
+              
+            }
+        ?>
 
   </body>
 

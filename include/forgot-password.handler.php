@@ -19,7 +19,7 @@ if(isset($_POST["submit"] ) && $_POST["email"]){
 
     $receipent = $email;
     require_once 'email_handler.php';
-    sendMail($token);
+    sendMail($token,$email);
     header("location: ../pending-email.php?email=".$email."");
 
     //mail
