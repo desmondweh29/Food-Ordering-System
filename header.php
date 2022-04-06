@@ -21,6 +21,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    
+    <!-- Javascript -->
+    <script src="./scripts/main.js"></script>
+
 </head>
 
 <body>
@@ -43,10 +47,10 @@
                 <div class="collapse navbar-collapse justify-content-end flex-row-reverse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
+                            <a class="nav-link" aria-current="page" href="menu.php" onclick="activate()">Menu</a>
                         </li>
 
                         <?php
