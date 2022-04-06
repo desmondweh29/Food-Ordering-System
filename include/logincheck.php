@@ -2,6 +2,7 @@
 
 if(isset($_POST["login"])){
     $name=$_POST["email"];
+    $password = $_POST["password"];
 
 
     require_once 'db_handler.php';

@@ -51,8 +51,7 @@ function loginUser($conn,$email,$password){
         exit();
     }
     $UPass = $UIDarray["adminPass"];
-    print_r($UIDarray);
-    if($password == $UPass){
+    if(password_verify($password, $UPass)){
         session_start();
         $_SESSION["adminID"] = $UIDarray["adminID"];
         header("location: ../index.php");
@@ -67,6 +66,7 @@ function loginUser($conn,$email,$password){
 function registerUser($conn,$email,$password){
     $UIDarray = fetchUIDPass($conn,$email);
     if(!empty($UIDarray)){
+        //error handling user already exist
         header("location: ../login.php?error=useralreadyexist");
         exit();
     }
@@ -79,7 +79,7 @@ function registerUser($conn,$email,$password){
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt,"ss",$email,$password);
+    mysqli_stmt_bind_param($stmt,"ss",$email,password_hash($password,PASSWORD_DEFAULT));
     $stmt->execute();
     mysqli_stmt_close($stmt);
     header("location: ../index.php");
@@ -91,10 +91,10 @@ function fetchtoken($conn,$email,$token,$newpass){
     $sql_query="SELECT email from password_reset where token = '$token'";
     $result = mysqli_query($conn,$sql_query);
     $email = mysqli_fetch_assoc($result)['email'];
+    $pass = password_hash($newpass,PASSWORD_DEFAULT);
 
-        //add hashing function
         //change this to new db when done
-        $sql2_query="UPDATE admins SET adminPass = '$newpass' where adminUID = '$email'";
+        $sql2_query="UPDATE admins SET adminPass = '$pass' where adminUID = '$email'";
         $result = mysqli_query($conn,$sql2_query);
 
 }
