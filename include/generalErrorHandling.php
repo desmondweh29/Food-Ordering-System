@@ -1,10 +1,6 @@
 
 <?php
 
-$email = $_POST["email"];
-$password = $_POST["password"];
-$password_confirm = $_POST["password_confirm"];
-
 function emptyInputRegister($email,$password, $password_confirm){
 
     if (empty($email)||empty($password)||empty($password_confirm)) {

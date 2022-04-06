@@ -1,9 +1,9 @@
 <?php
 
 if(isset($_POST["register"])){
-    $name=$_POST["email"];
-    $password=$_POST["password"];
-    $password_confirm=$_POST["password_confirm"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $password_confirm = $_POST["password_confirm"];
     require_once 'db_handler.php';
     require_once 'generalErrorHandling.php';
 
