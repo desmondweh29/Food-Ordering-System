@@ -48,7 +48,7 @@
         }
         ?>
 
-        <button type="submit" class="btn btn-primary" name="submit">Change password</button>
+        <button type="submit" class="btn btn-primary" name="submit" id="chgpwd-submit">Change password</button>
     </form>
 </div>
     
