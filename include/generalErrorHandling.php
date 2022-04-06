@@ -109,7 +109,16 @@ function emptyInputForgetPassword ($email)
     }
 }
 
-function fetchtoken($conn,$email,$token,$newpass){
+function emptyInputResetPassword($password, $password_confirm) 
+{
+    if (empty($password) || empty($password_confirm)) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function fetchtoken($conn,$email,$token,$password){
     //change this to new db when done
     $sql_query="SELECT email from password_reset where token = '$token'";
     $result = mysqli_query($conn,$sql_query);
@@ -117,7 +126,22 @@ function fetchtoken($conn,$email,$token,$newpass){
 
         //add hashing function
         //change this to new db when done
-        $sql2_query="UPDATE admins SET adminPass = '$newpass' where adminUID = '$email'";
-        $result = mysqli_query($conn,$sql2_query);
+
+        // $sql_query2="UPDATE user_account SET password = '$hashedPwd' where email = '$email'";
+        $sql_query2 = "UPDATE user_account SET password = ? where email = '$email'";
+        $stmt = mysqli_stmt_init($conn);
+        
+        if(!mysqli_stmt_prepare($stmt,$sql_query2)){
+            header("location: reset-password.php?error=stmtfailed");
+            exit();
+        }
+
+        $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+
+        mysqli_stmt_bind_param($stmt,"s",$hashedPwd);
+        mysqli_stmt_execute($stmt);    
+        mysqli_stmt_close($stmt);
+        header("location: reset-success.php");
+        exit();
 
 }

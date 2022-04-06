@@ -1,11 +1,11 @@
 <?php
-if(isset($_POST["submit"] ) && $_POST["email"]){
+if(isset($_POST["submit"]) ){
     require_once 'db_handler.php';
     require_once 'generalErrorHandling.php';
 
     $email=$_POST["email"];
-    $email = filter_var($email,FILTER_SANITIZE_EMAIL);
-    $email = filter_var($email,FILTER_VALIDATE_EMAIL);
+    // $email = filter_var($email,FILTER_SANITIZE_EMAIL);
+    // $email = filter_var($email,FILTER_VALIDATE_EMAIL);
 
     if (emptyInputForgetPassword($email) !== false) {
         header("location: ../forgot-password.php?error=emptyinput");
@@ -20,6 +20,7 @@ if(isset($_POST["submit"] ) && $_POST["email"]){
         header("location: ../forgot-password.php?error=emailnotexist");
         exit();
     }
+
     $token = bin2hex(random_bytes(50));
 
     $sql_insert = "INSERT INTO password_reset(email,token) VALUES ('$email','$token')";
@@ -35,7 +36,6 @@ if(isset($_POST["submit"] ) && $_POST["email"]){
 
     }
     else{
-    header("location: ../register.php");
-
-    exit();
+        header("location: ../register.php");    
+        exit();
     }
