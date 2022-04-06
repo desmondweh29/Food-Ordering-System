@@ -1,25 +1,26 @@
 <?php
 
 if(isset($_POST["login"])){
-    $name=$_POST["email"];
+    $email=$_POST["email"];
 
 
     require_once 'db_handler.php';
     require_once 'generalErrorHandling.php';
 
-    if(invalidInput($name) != false){
-        header("location: ../login.php?error=invalidEmail");
+    if (emptyInputLogin($email,$password) !== false) {
+        header("location: ../login.php?error=emptyinput");
         exit();
     }
 
-    if (emptyInput($name,$password) != false) {
-        header("location: ../login.php?error=emptyInput");
+    if(invalidEmail($email) !== false){
+        header("location: ../login.php?error=invalidemail");
         exit();
     }
     
-    loginUser($conn,$name,$password);
+    loginUser($conn,$email,$password);
 
 }else {
     header("location: ../login.php");
+    exit();
     //loginfailed
 }

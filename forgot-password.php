@@ -22,7 +22,7 @@
         <form id= "forgot-password-form" action="./include/forgot-password.handler.php" method="post">
             <div class="email-group">
                 <label for="email">Enter your email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email..." required/>
+                <input type="text" id="email" name="email" placeholder="Enter your email..." />
             </div>
 
             <div class="btn-group">

@@ -22,13 +22,31 @@
         <form id= "login-form" action="./include/logincheck.php" method="post">
             <div class="email-group">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email..." required/>
+                <input type="text" id="email" name="email" placeholder="Enter your email..." />
             </div>
 
             <div class="password-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password..." required/>
+                <input type="password" id="password" name="password" placeholder="Enter your password..." />
             </div>
+
+            <?php
+            if (isset($_GET["error"])) {
+                if($_GET["error"] == "emptyinput") {
+                    echo "<p class=\"error\">Fill in all fields!</p>";
+                }
+                else if ($_GET["error"] == "invalidemail") {
+                    echo "<p class=\"error\">Enter a valid email!</p>";
+                }
+                else if ($_GET["error"] == "wronglogin") {
+                    echo "<p class=\"error\">Wrong email/password!</p>";
+                }
+            }
+            else
+            {
+                echo "<br>";
+            }
+            ?>
 
             <div class="btn-group">
                 <button type="submit" class="btn-green btn-left" name="login">Login</button>

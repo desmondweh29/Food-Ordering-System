@@ -7,7 +7,7 @@ if(isset($_POST["submit"] ) && $_POST["email"]){
     $email = filter_var($email,FILTER_SANITIZE_EMAIL);
     $email = filter_var($email,FILTER_VALIDATE_EMAIL);
 
-    if(fetchUIDPass($conn,$email) === false){
+    if(emailExists($conn,$email) === false){
         //insert error handling for email not found in db
 
         exit();

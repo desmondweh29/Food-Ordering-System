@@ -5,7 +5,6 @@
   <head>
     <meta charset = "utf-8">
     <link rel="stylesheet" href="styles/login-register.css">
-    <script type="text/javascript" src="scripts/register.js" defer></script>
     <title>YUM! - Pending Email</title>
   </head>
 
