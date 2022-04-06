@@ -119,10 +119,7 @@ function emptyInputResetPassword($password, $password_confirm)
 }
 
 function fetchtoken($conn,$email,$token,$password){
-    //change this to new db when done
-    // $sql_query="SELECT email from password_reset where token = '$token'";
-    // $result = mysqli_query($conn,$sql_query);
-
+    // select email that matches the token
     $sql_query = "SELECT email from password_reset where token = ?;";
     $stmt = mysqli_stmt_init($conn);
 
@@ -132,30 +129,49 @@ function fetchtoken($conn,$email,$token,$password){
     }
 
     mysqli_stmt_bind_param($stmt,"s",$token);
-    $stmt->execute();
-    $resultData = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_execute($stmt);  
 
+    // check if email of that token exist in db
+    $resultData = mysqli_stmt_get_result($stmt);
     if(mysqli_num_rows($resultData) == 0) {
         header("location: reset-password.php?error=tokenexpired");
         exit();
     } 
 
+
     $email = mysqli_fetch_assoc($resultData)['email'];
 
-    // $sql_query2="UPDATE user_account SET password = '$hashedPwd' where email = '$email'";
+    // update the password
     $sql_query2 = "UPDATE user_account SET password = ? where email = '$email'";
-    $stmt = mysqli_stmt_init($conn);
+    $stmt2 = mysqli_stmt_init($conn);
     
-    if(!mysqli_stmt_prepare($stmt,$sql_query2)){
+    if(!mysqli_stmt_prepare($stmt2,$sql_query2)){
         header("location: reset-password.php?error=stmtfailed");
         exit();
     }
 
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt,"s",$hashedPwd);
-    mysqli_stmt_execute($stmt);    
+    mysqli_stmt_bind_param($stmt2,"s",$hashedPwd);
+    mysqli_stmt_execute($stmt2);  
+
+
+    //deleting the token from database after password reset
+    $sql_query3 = "DELETE FROM password_reset where token = ?;";
+    $stmt3 = mysqli_stmt_init($conn);
+    
+    if(!mysqli_stmt_prepare($stmt3,$sql_query3)){
+        header("location: ../register.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt3,"s",$token);
+    mysqli_stmt_execute($stmt3);    
+
+    //closing statements
     mysqli_stmt_close($stmt);
+    mysqli_stmt_close($stmt2);
+    mysqli_stmt_close($stmt3);
     header("location: reset-success.php");
     exit();
 
