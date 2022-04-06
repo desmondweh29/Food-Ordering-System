@@ -24,8 +24,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 
-    <!-- Javascript -->
-    <script src="./scripts/main.js"></script>
+    
 
 </head>
 

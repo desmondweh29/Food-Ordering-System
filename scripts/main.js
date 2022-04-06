@@ -7,9 +7,9 @@ for (var i = 0; i < links.length; i++) {
         links[i].classList.add("active");
         in_profile = false;  
     }
-    
-    if (in_profile)
-    {
-        document.getElementById("navbarDropdown").classList.add("active");
-    }
+}
+
+if (in_profile)
+{
+    document.getElementById("navbarDropdown").classList.add("active");
 }
