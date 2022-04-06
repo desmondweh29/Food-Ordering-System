@@ -34,3 +34,7 @@ body {
     margin: 15px auto 15px auto;
     /* margin: top | right | bottom | left  */
 }
+
+#order-list {
+    width: 18.5rem;
+}
