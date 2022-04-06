@@ -33,11 +33,11 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                <li><a class="dropdown-item" href="./include/logout.php">Sign out</a></li>
                             </ul>
                             <!-- End of .dropdown-menu  -->
                         </li>
-                        <a href="#" class="btn btn-outline-primary navbar-btn" id="btn-signin">Sign In</a>
+                        <a href="./login.php" class="btn btn-outline-primary navbar-btn" id="btn-signin">Sign In</a>
                     </ul>
                     <!-- End of .navbar-nav  -->
                 </div>
