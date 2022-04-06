@@ -47,10 +47,10 @@
                 <div class="collapse navbar-collapse justify-content-end flex-row-reverse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link" aria-current="page" href="index.php" data-pathname="/index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="menu.php" onclick="activate()">Menu</a>
+                            <a class="nav-link" aria-current="page" href="menu.php" data-pathname="/menu.php">Menu</a>
                         </li>
 
                         <?php
