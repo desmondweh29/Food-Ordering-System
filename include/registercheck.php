@@ -7,7 +7,7 @@ if(isset($_POST["register"])){
     require_once 'db_handler.php';
     require_once 'generalErrorHandling.php';
 
-    if (emptyInputRegister($name,$password,$password_confirm) !== false) {
+    if (emptyInputRegister($email,$password,$password_confirm) !== false) {
         header("location: ../register.php?error=emptyinput");
         exit();
     }
@@ -24,7 +24,7 @@ if(isset($_POST["register"])){
         exit();
     }
 
-    registerUser($conn,$name,$password);
+    registerUser($conn,$email,$password);
 }
 else
 {
