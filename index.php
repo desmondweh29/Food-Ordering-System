@@ -1,7 +1,9 @@
 <?php
-session_start();
+    session_start();
+    include_once 'header.php';
 ?>
-<!DOCTYPE html>
+
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
@@ -19,19 +21,21 @@ session_start();
         <label>Select Image File:</label>
         <input type="file" name="image">
          <input type="submit" name="submit" value="Upload">
-</form>
+        </form>
         </div>
     </head>
 
 
 
-    <body>
+    <body> -->
     <?php
         if(isset($_SESSION["email"])){
         echo"<p> HELLO USER ID ". $_SESSION["email"] . "</p>";
         }else{
             echo"ITDIDNOTWORK";
         }
-        ?>
-    </body>
-</html>
+    ?>
+    
+<?php
+    include_once 'footer.php';
+?>
