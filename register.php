@@ -44,7 +44,7 @@
                     echo "<p class=\"error\">Enter a valid email!</p>";
                 }
                 else if ($_GET["error"] == "passwordsdontmatch") {
-                    echo "<p class=\"error\">Password and Confirm Password don't match!</p>";
+                    echo "<p class=\"error\">Password and Confirm Password do not match!</p>";
                 }
                 else if ($_GET["error"] == "emailtaken") {
                     echo "<p class=\"error\">Email taken, use another email!</p>";
