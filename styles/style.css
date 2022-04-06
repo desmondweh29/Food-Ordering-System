@@ -22,9 +22,15 @@ body {
 
 .btn-group {
     width: 50%;
-
 }
 
 .card {
     width: 18.5rem;
+    margin: 15px auto 15px auto;
+    /* margin: top | right | bottom | left  */
+}
+
+#menu-nav {
+    margin: 15px auto 15px auto;
+    /* margin: top | right | bottom | left  */
 }

@@ -11,7 +11,7 @@ session_start();
 
         <div id="navbar">
             <a href="login.php" class="navlink">login</a>
-            <a href="logout.php">logout</a>
+            <a href="./include/logout.php">logout</a>
         </div>
 
         <div>
@@ -27,8 +27,8 @@ session_start();
 
     <body>
     <?php
-        if(isset($_SESSION["adminID"])){
-        echo"<p> HELLO USER ID ". $_SESSION["adminID"] . "</p>";
+        if(isset($_SESSION["email"])){
+        echo"<p> HELLO USER ID ". $_SESSION["email"] . "</p>";
         }else{
             echo"ITDIDNOTWORK";
         }

@@ -37,7 +37,7 @@
                             </ul>
                             <!-- End of .dropdown-menu  -->
                         </li>
-                        <a href="#" class="btn btn-outline-primary navbar-btn" id="btn-signin">Sign In</a>
+                        <a href="./login.php" class="btn btn-outline-primary navbar-btn" id="btn-signin">Sign In</a>
                     </ul>
                     <!-- End of .navbar-nav  -->
                 </div>
