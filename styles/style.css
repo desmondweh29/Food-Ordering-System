@@ -1,15 +1,17 @@
-.navbar{
-
+body {
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.navbar a{
 
+#section-1 {
+    margin: 25px auto 25px auto;
+    /* margin: top | right | bottom | left  */
 }
 
-.navbar a:hover{
-
+.img-fluid {
+    width: 100%;
 }
 
-.navbar a:active{
-    
+#about-us {
+    padding-top: 20px;
 }
