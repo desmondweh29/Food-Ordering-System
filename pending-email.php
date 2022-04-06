@@ -20,9 +20,9 @@
             <p>Email Sent!</p>
         </div>
 
-        <h2>We have sent an email to  <b><?php echo $_GET['email'] ?></b> to help you recover your account. </h2>
+        <h2>We have sent an email to  <a href="mailto:<?php echo $_GET['email'] ?>"><?php echo $_GET['email'] ?></a> to help you recover your account. </h2>
         <br>
-        <h4>Please login into your email account and click on the link we sent to reset your password.</h4>
+        <h4>Please login into your email account and click on the link we have sent to reset your password.</h4>
     </div>
 
   </body>
