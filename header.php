@@ -29,7 +29,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Change Password</a></li>
-                                <li><a class="dropdown-item" href="#">lorem</a></li>
+                                <li><a class="dropdown-item" href="#">Order History</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
