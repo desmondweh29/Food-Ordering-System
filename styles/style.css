@@ -8,10 +8,23 @@ body {
     /* margin: top | right | bottom | left  */
 }
 
+#btn-signin {
+    margin: auto 10px auto 10px;
+}
+
 .img-fluid {
     width: 100%;
 }
 
 #about-us {
     padding-top: 20px;
+}
+
+.btn-group {
+    width: 50%;
+
+}
+
+.card {
+    width: 18.5rem;
 }
