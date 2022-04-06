@@ -149,6 +149,11 @@ label {
     color: red ;
 }
 
+.success {
+    margin: 0 0 0 0;
+    color: rgb(18, 192, 3);
+}
+
 h2, h4 {
     color: black;
 }

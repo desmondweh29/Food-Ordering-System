@@ -42,6 +42,9 @@
             else if ($_GET["error"] == "stmtfailed") {
                 echo "<p class=\"error\">Something went wrong, try again!</p>";
             }
+            else if ($_GET["error"] == "none") {
+                echo "<p class=\"success\">Password successfully changed!</p>";
+            }
         }
         else
         {

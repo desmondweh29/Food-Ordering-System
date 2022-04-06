@@ -15,15 +15,15 @@ if(isset($_POST["submit"])){
         header("location: ../change-password.php?error=emptyinput");
         exit();
     }
-    // if (wrongCurrentPassword($conn, $email, $password_current) !== false) {
-    //     header("location: ../change-password.php?error=currentpasswordwrong");
-    //     exit();
-    // }
+    
+    //check for whether current password is correct
+    checkCurrentPassword($conn, $email, $password_current);
+
     if (pwdMatch($password_new, $password_confirm) !== false) {
         header("location: ../change-password.php?error=passwordsdontmatch");
         exit();
     }
-
+    
     changePassword($conn,$email,$password_new);
 }
 else

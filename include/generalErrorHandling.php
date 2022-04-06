@@ -185,27 +185,19 @@ function emptyInputChangePassword($password_current,$password_new,$password_conf
     }
 }
 
-function wrongCurrentPassword($conn, $email, $password_current) {
-    $sql_query = "SELECT * FROM user_account where email = '$email'";
-    $stmt = mysqli_stmt_init($conn);
-    
-    if(!mysqli_stmt_prepare($stmt,$sql_query)){
-        header("location: ../reset-password.php?error=stmtfailed");
+function checkCurrentPassword($conn, $email, $password_current) {
+    $emailExists=emailExists($conn,$email);
+    if($emailExists === false){
+        header("location: ../change-password.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt,"s",$email);
-    $stmt->execute();
-    $resultData = mysqli_stmt_get_result($stmt);
-    printf("%d row affected.\n", mysqli_stmt_affected_rows($stmt));
-
-    $row = mysqli_fetch_assoc($resultData);
-
-    $pwdHashed = $row["password"];
+    $pwdHashed = $emailExists["password"];
     $checkPwd = password_verify($password_current, $pwdHashed);
 
     if ($checkPwd === false) {
-        return true;
+        header("location: ../change-password.php?error=currentpasswordwrong");
+        exit();
     }
 }
 
@@ -214,7 +206,7 @@ function changePassword($conn,$email,$password) {
     $stmt = mysqli_stmt_init($conn);
     
     if(!mysqli_stmt_prepare($stmt,$sql_query)){
-        header("location: ../reset-password.php?error=stmtfailed");
+        header("location: ../change-password.php?error=stmtfailed");
         exit();
     }
 
@@ -223,9 +215,6 @@ function changePassword($conn,$email,$password) {
     mysqli_stmt_bind_param($stmt,"s",$hashedPwd);
     mysqli_stmt_execute($stmt);  
     mysqli_stmt_close($stmt);
-    echo '<script language="javascript">';
-    echo 'alert("Your password has been changed successfully. Please kindly login again.")';
-    echo '</script>';
-    header("location: ../login.php");
+    header("location: ../change-password.php?error=none");
     exit();
 }
