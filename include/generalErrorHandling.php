@@ -185,22 +185,23 @@ function emptyInputChangePassword($password_current,$password_new,$password_conf
     }
 }
 
-function invalidCurrentPassword($conn, $email, $password_current) {
-    $sql_query = "SELECT password from user_account where email = ?;";
+function wrongCurrentPassword($conn, $email, $password_current) {
+    $sql_query = "SELECT * FROM user_account where email = '$email'";
     $stmt = mysqli_stmt_init($conn);
-
+    
     if(!mysqli_stmt_prepare($stmt,$sql_query)){
-        header("location: change-password.php?error=stmtfailed");
+        header("location: ../reset-password.php?error=stmtfailed");
         exit();
     }
 
     mysqli_stmt_bind_param($stmt,"s",$email);
-    mysqli_stmt_execute($stmt);  
-
+    $stmt->execute();
     $resultData = mysqli_stmt_get_result($stmt);
+    printf("%d row affected.\n", mysqli_stmt_affected_rows($stmt));
 
-    $pwdHashed = mysqli_fetch_assoc($resultData)['password'];
+    $row = mysqli_fetch_assoc($resultData);
 
+    $pwdHashed = $row["password"];
     $checkPwd = password_verify($password_current, $pwdHashed);
 
     if ($checkPwd === false) {
@@ -213,7 +214,7 @@ function changePassword($conn,$email,$password) {
     $stmt = mysqli_stmt_init($conn);
     
     if(!mysqli_stmt_prepare($stmt,$sql_query)){
-        header("location: reset-password.php?error=stmtfailed");
+        header("location: ../reset-password.php?error=stmtfailed");
         exit();
     }
 
@@ -225,6 +226,6 @@ function changePassword($conn,$email,$password) {
     echo '<script language="javascript">';
     echo 'alert("Your password has been changed successfully. Please kindly login again.")';
     echo '</script>';
-    header("location: login.php");
+    header("location: ../login.php");
     exit();
 }
