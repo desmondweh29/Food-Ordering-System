@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,10 +48,16 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
                         </li>
-                        <!-- <li class="nav-item dropdown">
+
+                        <?php
+                            if (isset($_SESSION["accountID"]))
+                            {
+                        ?>
+
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                1191303027
+                                <?php echo $_SESSION["email"] ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="./change-password.php">Change Password</a></li>
@@ -57,9 +67,19 @@
                                 </li>
                                 <li><a class="dropdown-item" href="./include/logout.php">Sign out</a></li>
                             </ul>
-                            End of .dropdown-menu  -->
                         </li>
-                        <a href="#" class="btn btn-outline-primary navbar-btn" id="btn-signin">Sign In</a>
+
+                        <?php
+                            }
+                            else
+                            {
+                        ?>
+
+                        <a href="./login.php" class="btn btn-outline-primary navbar-btn" id="btn-signin">Sign In</a>
+                        
+                        <?php
+                            }
+                        ?>
                     </ul>
                     <!-- End of .navbar-nav  -->
                 </div>
