@@ -1,11 +1,9 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset = "utf-8">
     <link rel="stylesheet" href="styles/login-register.css">
-    <title>YUM! - Pending Email</title>
+    <title>YUM! - Email Sent!</title>
   </head>
 
   <body>
@@ -13,12 +11,21 @@
     <div class="bg-image"></div>
 
     <div class="form-container">
-        <label>
-			We have sent an email to  <b><?php echo $_GET['email'] ?></b> to help you recover your account. 
-        </label>
-	    <label>Please login into your email account and click on the link we sent to reset your password</label>
+        <div>
+            <img class="logo-register" src="./images/Yum!.png" alt="Yum! logo"/>
+        </div>
+
+
+        <div class="title">
+            <p>Email Sent!</p>
+        </div>
+
+        <h2>We have sent an email to  <b><?php echo $_GET['email'] ?></b> to help you recover your account. </h2>
+        <br>
+        <h4>Please login into your email account and click on the link we sent to reset your password.</h4>
     </div>
 
   </body>
 
 </html>
+
