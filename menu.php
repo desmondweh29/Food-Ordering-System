@@ -111,6 +111,41 @@
                         </thead>
                         <!-- End of thead  -->
                         <tbody>
+                            <?php
+                            require_once './include/db_handler.php';
+                            $email = $_SESSION["email"];
+                            $userID = $_SESSION['accountID'];
+
+                            $cartArray = array();//2d array 
+                            $rowKey = 0;
+                            $totalPrice =0;
+                            $cartQuery="SELECT * FROM cart where accountID = '$userID'";
+
+                            //if statement
+                            $cartResult=mysqli_query($conn,$cartQuery);
+                            $cartArray = mysqli_fetch_all($cartResult,MYSQLI_ASSOC);
+                            if(!$cartResult){
+                                header("location: ./ordercart.php?error=didnotwork");
+                                exit();
+                            }
+
+                            foreach ($cartArray as $key => $value) {
+                                echo "<tr>";
+                                echo "<th scope='row'>1</th>";
+                                echo "<td>".$cartArray[$key]['M_Name']."</td>";
+                                echo "<td>".$cartArray[$key]['M_Quantity']."</td>";
+                                echo "<td>".$cartArray[$key]['M_Price']."</td>";
+                                $totalPrice = $totalPrice + $cartArray[$key]['M_Price']*$cartArray[$key]['M_Quantity'];
+                                //echo "<td id=''>  ".$totalPrice." </td>";
+                                echo "</tr>";
+
+                            }
+                            $totalPrice = number_format($totalPrice,2);
+
+
+
+                            ?>
+                            <!--
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Chicken testing testing testing</td>
@@ -129,6 +164,7 @@
                                 <td>1</td>
                                 <td>7.50</td>
                             </tr>
+                -->
                         </tbody>
                         <!-- End of tbody  -->
                         <tfoot>
@@ -139,13 +175,15 @@
                             </tr>
                             <tr>
                                 <th colspan="3">Total (RM) :</th>
-                                <th>0.00</th>
+                                <?php echo "<th> $totalPrice </th>"?>
                             </tr>
                             <tr>
-                                <th colspan="2"><button type="button" class="btn btn-primary order-btn1">Order Now</button>
+                                <form action="./include/orderCart_handler.php" method="POST">
+                                <th colspan="2"><button type="submit" name="orderNow" class="btn btn-primary order-btn1">Order Now</button>
                                 </th>
-                                <th colspan="2"><button type="button" class="btn btn-danger order-btn1">Clear List</button>
+                                <th colspan="2"><button type="submit" name="clearList" class="btn btn-danger order-btn1">Clear List</button>
                                 </th>
+                                </form>     
                             </tr>
                         </tfoot>
                         <!-- End of tfoot  -->
