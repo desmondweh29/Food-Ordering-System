@@ -5,7 +5,7 @@
     $email = $_SESSION["email"];
     //$cprice = $_SESSION["cprice"];
     //$cfoodID = $_SESSION["menuID"];
-
+    $totalPrice = $_SESSION['totalprice'];
     $cname = $_POST["cname"];
     $cnum = $_POST["cnum"];
     //$type = $_POST["type"];

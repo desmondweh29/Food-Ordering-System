@@ -141,7 +141,7 @@
 
                             }
                             $totalPrice = number_format($totalPrice,2);
-
+                            $_SESSION["totalPrice"]= $totalPrice;
 
 
                             ?>
