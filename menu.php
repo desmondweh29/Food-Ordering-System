@@ -1,5 +1,21 @@
 <?php
-include_once 'header.php';
+    include_once 'header.php';
+    include_once './include/db_handler.php';
+
+    if (isset($_SESSION["accountID"]))
+    {
+        $accountID = $_SESSION["accountID"];
+    }
+
+    // build the query to display all data from table food_order
+    $query = "SELECT * FROM food_order WHERE accountID = $accountID;";
+
+    // execute the query
+    if(!($result = mysqli_query($conn, $query)))
+    {
+        echo "<p>Could not execute query</p>";
+        die(mysqli_error($conn) . "</body></html>");
+    }
 ?>
 
 <div class="container-lg position-relative">
@@ -185,6 +201,10 @@ include_once 'header.php';
             </div>
             <!-- End of #menu-nav -->
 
+            <?php
+                if (isset($_SESSION["accountID"])) {
+            ?>
+
             <div class="card" id="order-list">
                 <div class="card-body">
                     <h5 class="card-title">Your Order</h5>
@@ -248,6 +268,17 @@ include_once 'header.php';
                 <!-- End of .card-body -->
             </div>
             <!-- End of #order-list .card  -->
+            <?php
+                } else {
+            ?>
+
+            <!-- Ask user to login -->
+
+            <?php
+                }
+            ?>
+
+
         </div>
         <!-- End of .col-12 .col-lg-12  -->
     </div>
