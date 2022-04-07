@@ -8,7 +8,7 @@
     }
 
     // build the query to display all data from table food_order
-    $query = "SELECT * FROM food_order WHERE accountID = $accountID;";
+    $query = "SELECT * FROM food";
 
     // execute the query
     if(!($result = mysqli_query($conn, $query)))
@@ -20,7 +20,9 @@
 
 <div class="container-lg position-relative">
     <div class="row g-2" id="spacer-2">
-        <div class="col-4 col-lg-3 col-md-4">
+
+    <!-- echo start from here -->
+        <div class="col-lg-3 col-md-4"> 
             <div class="card menu-card">
                 <img src="images/food.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -45,157 +47,21 @@
             </div>
             <!-- End of .card  -->
         </div>
-        <!--End of .col-4 .col-lg-3 .col-md-4  -->
-        <div class="col-6 col-lg-3 col-md-4">
-            <div class="card menu-card">
-                <img src="images/food.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Chicken Rice</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    <span class="col-6">
-                        <div class="btn-group position-static bottom-0 start-50 translate-x">
-                            <button type="button" class="btn bi-dash-circle" data-type="minus"></button>
-                            <input type="text" class="form-control input-number" value="2">
-                            <button type="button" class="btn bi-plus-circle" data-type="plus"></button>
-                        </div>
-                        <!-- End of .btn-group  -->
-                    </span>
-                    <!-- End of .col-6  -->
-                    <span class="col-6">
-                        <button type="button" class="btn btn-primary">Add to Order</button>
-                    </span>
-                    <!-- End of .col-6  -->
-                </div>
-                <!-- End of .card-body  -->
-            </div>
-            <!-- End of .card  -->
-        </div>
-        <!--End of .col-4 .col-lg-3 .col-md-4  -->
 
-        <!-- Force next columns to break to new line -->
-        <div class="w-100"></div>
+        <!-- echo end from here -->
 
-        <div class="col-4 col-lg-3 col-md-4">
-            <div class="card menu-card">
-                <img src="images/food.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Chicken Rice</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    <span class="col-6">
-                        <div class="btn-group position-static bottom-0 start-50 translate-x">
-                            <button type="button" class="btn bi-dash-circle" data-type="minus"></button>
-                            <input type="text" class="form-control input-number" value="2">
-                            <button type="button" class="btn bi-plus-circle" data-type="plus"></button>
-                        </div>
-                        <!-- End of .btn-group  -->
-                    </span>
-                    <!-- End of .col-6  -->
-                    <span class="col-6">
-                        <button type="button" class="btn btn-primary">Add to Order</button>
-                    </span>
-                    <!-- End of .col-6  -->
-                </div>
-                <!-- End of .card-body  -->
-            </div>
-            <!-- End of .card  -->
-        </div>
-        <!--End of .col-4 .col-lg-3 .col-md-4  -->
-        <div class="col-6 col-lg-3 col-md-4">
-            <div class="card menu-card">
-                <img src="images/food.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Chicken Rice</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    <span class="col-6">
-                        <div class="btn-group position-static bottom-0 start-50 translate-x">
-                            <button type="button" class="btn bi-dash-circle" data-type="minus"></button>
-                            <input type="text" class="form-control input-number" value="2">
-                            <button type="button" class="btn bi-plus-circle" data-type="plus"></button>
-                        </div>
-                        <!-- End of .btn-group  -->
-                    </span>
-                    <!-- End of .col-6  -->
-                    <span class="col-6">
-                        <button type="button" class="btn btn-primary">Add to Order</button>
-                    </span>
-                    <!-- End of .col-6  -->
-                </div>
-                <!-- End of .card-body  -->
-            </div>
-            <!-- End of .card  -->
-        </div>
-        <!--End of .col-4 .col-lg-3 .col-md-4  -->
+             <!-- Force next columns to break to new line -->
+             <div class="w-100"></div>
 
-        <!-- Force next columns to break to new line -->
-        <div class="w-100"></div>
+      
 
-        <div class="col-5 col-lg-3 col-md-4">
-            <div class="card menu-card">
-                <img src="images/food.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Chicken Rice</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    <span class="col-6">
-                        <div class="btn-group position-static bottom-0 start-50 translate-x">
-                            <button type="button" class="btn bi-dash-circle" data-type="minus"></button>
-                            <input type="text" class="form-control input-number" value="2">
-                            <button type="button" class="btn bi-plus-circle" data-type="plus"></button>
-                        </div>
-                        <!-- End of .btn-group  -->
-                    </span>
-                    <!-- End of .col-6  -->
-                    <span class="col-6">
-                        <button type="button" class="btn btn-primary">Add to Order</button>
-                    </span>
-                    <!-- End of .col-6  -->
-                </div>
-                <!-- End of .card-body  -->
-            </div>
-            <!-- End of .card  -->
-        </div>
-        <!--End of .col-4 .col-lg-3 .col-md-4  -->
-
-        <div class="col-5 col-lg-3 col-md-4">
-            <div class="card menu-card">
-                <img src="images/food.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Chicken Rice</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    <span class="col-6">
-                        <div class="btn-group position-static bottom-0 start-50 translate-x">
-                            <button type="button" class="btn bi-dash-circle" data-type="minus"></button>
-                            <input type="text" class="form-control input-number" value="2">
-                            <button type="button" class="btn bi-plus-circle" data-type="plus"></button>
-                        </div>
-                        <!-- End of .btn-group .position-static .bottom-0 .start-50 .translate-x -->
-                    </span>
-                    <!-- End of .col-6  -->
-                    <span class="col-6">
-                        <button type="button" class="btn btn-primary">Add to Order</button>
-                    </span>
-                    <!-- End of .col-6  -->
-                </div>
-                <!-- End of .card-body  -->
-            </div>
-            <!-- End of .card  -->
-        </div>
-        <!--End of .col-4 .col-lg-3 .col-md-4  -->
-    </div>
-    <!-- End of .row .g-2 -->
-
-    <div class="position-absolute float-end top-0 end-0">
-        <div class="col-12 col-lg-12">
+    <div class="position-absolute float-end top-0 end-0" id ="menu-rightbar-container">
+        <div class="col-12 col-lg-12 ">
             <div id="menu-nav">
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                        Culinary </a>
-                    <a href="#" class="list-group-item list-group-item-action">Beverages</a>
-                    <a href="#" class="list-group-item list-group-item-action">Snacks</a>
+                     <button class="list-group-item list-group-item-action active" aria-current="true">Culinary</button>
+                    <button class="list-group-item list-group-item-action">Beverages</button>
+                    <button class="list-group-item list-group-item-action">Snacks</button>
                 </div>
                 <!-- End of .list-group  -->
             </div>

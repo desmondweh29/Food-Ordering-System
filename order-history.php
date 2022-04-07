@@ -18,7 +18,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <div class="container-lg">
+    <div class="container-lg" id="section-1">
         <div class="title">
             <h2>Order History</h2>
         </div>

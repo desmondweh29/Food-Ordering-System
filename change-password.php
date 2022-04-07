@@ -6,7 +6,7 @@
         <?php include 'styles/change-password.css' ?>
     </style>
 
-<div class="container-lg">
+<div class="container-lg" id="section-1">
     <div class="title-profile">
         <p>Change password</p>
     </div>

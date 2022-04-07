@@ -4,7 +4,7 @@
 
 
 #section-1 {
-    margin: 70px auto 25px auto;
+    margin: 100px auto 25px auto;
     /* margin: top | right | bottom | left  */
 }
 
@@ -39,6 +39,8 @@
 
 #menu-nav {
     margin: 14px auto 20px auto;
+    width: 18.5rem;
+
     /* margin: top | right | bottom | left  */
 }
 
@@ -80,5 +82,10 @@
     float: left;
 }
 
+#menu-rightbar-container {
+    display: block;
+    float: right;
+    width: 300px;
+}
 
 
