@@ -3,6 +3,7 @@
 ?>
     <style>
         <?php include 'styles/login-register.css' ?>
+        <?php include 'styles/change-password.css' ?>
     </style>
 
 <div class="container-lg">
