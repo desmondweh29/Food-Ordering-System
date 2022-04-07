@@ -23,6 +23,7 @@
         <h2>Thank you for joining us!</h2>
         <br>
         <h4>You may now return to the <a href="index.php">home page</a> or the <a href="login.php">login page</a>.</h4>
+        
     </div>
 
   </body>
