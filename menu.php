@@ -21,14 +21,18 @@
 <div class="container-lg position-relative">
     <div class="row g-2" id="spacer-2">
 
-    <!-- echo start from here -->
+    <?php
+        $count = 0; 
+        while ($row = mysqli_fetch_assoc($result)) 
+        {
+    ?>
         <div class="col-lg-3 col-md-4"> 
             <div class="card menu-card">
-                <img src="images/food.jpg" class="card-img-top" alt="...">
+                <img src="images/<?php echo $row["image"]?>" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Chicken Rice</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
+                    <h5 class="card-title"><?php echo $row["name"]?></h5>
+                    <h6><b><span>Price: RM</span><span class="price-font"><?php echo $row["price"]?></span></b></h6>
+                    <p class="card-text"><?php echo $row["description"]?></p>
                     <span class="col-6">
                         <div class="btn-group position-static bottom-0 start-50 translate-x">
                             <button type="button" class="btn bi-dash-circle" data-type="minus"></button>
@@ -47,11 +51,18 @@
             </div>
             <!-- End of .card  -->
         </div>
+        
+    <?php
+            $count = $count + 1;
+            if ($count%2 == 0) {
+                echo "<div class=\"w-100\"></div>";
+            }
+        }
+    ?>
 
         <!-- echo end from here -->
 
              <!-- Force next columns to break to new line -->
-             <div class="w-100"></div>
 
       
 
