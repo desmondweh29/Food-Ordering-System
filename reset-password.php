@@ -40,7 +40,7 @@
                   echo "<p class=\"error\">Passwords do not match!</p>";
                 }
                 else if ($_GET["error"] == "tokenexpired") {
-                  echo "<p class=\"error\">Your token has expired, do <a href=\"forgot-password.php\">request</a> a password reset again!</p>";
+                  echo "<p class=\"error\">Your token has expired/been used, do <a href=\"forgot-password.php\">request</a> a password reset again!</p>";
                 }
                 else if ($_GET["error"] == "stmtfailed") {
                     echo "<p class=\"error\">Something went wrong, try again!</p>";
