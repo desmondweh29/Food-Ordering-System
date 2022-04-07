@@ -29,9 +29,17 @@
 
         $sqlquery = "INSERT INTO food_order
         (email,customer_name,telno,type,remarks,accountID) VALUES
-        ('$email','$cname','$cnum','$type','$cremark','$userID')
+        (?,?,?,?,?,?)
         ";
-        $orderResult = mysqli_query($conn,$sqlquery);
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt,$sqlquery)){
+            header("location: ../checkout-form.php?error=stmtfailed");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt,"ssissi",$email,$cname,$cnum,$type,$cremark,$userID);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
         header("location: ../checkout-form.php?error=succssful");
     }elseif (isset($_POST["back"])) {
        header("location: /");//goback to cart?
