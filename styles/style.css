@@ -4,7 +4,7 @@
 
 
 #section-1 {
-    margin: 25px auto 25px auto;
+    margin: 70px auto 25px auto;
     /* margin: top | right | bottom | left  */
 }
 
@@ -24,13 +24,21 @@
     width: 50%;
 }
 
+#spacer-1 {
+    margin-top: 70px;
+}
+
+#spacer-2 {
+    margin-top: 95px;
+}
+
 .menu-card {
     max-width: 18rem;
-    margin-bottom: 10px;    
+    margin: 5px auto 5px auto;  
 }
 
 #menu-nav {
-    margin: 15px auto 15px auto;
+    margin: 14px auto 20px auto;
     /* margin: top | right | bottom | left  */
 }
 
@@ -46,7 +54,8 @@
 }
 
 #customerRemarks {
-    height:120px;
+    height:100px;
+    resize: none;
 }
 
 #order-bg {    
