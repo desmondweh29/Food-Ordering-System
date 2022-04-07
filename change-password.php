@@ -27,7 +27,7 @@
             <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm your new password..." />
         </div>
 
-
+   
         <?php
         if (isset($_GET["error"])) {
             if($_GET["error"] == "emptyinput") {
