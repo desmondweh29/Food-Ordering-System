@@ -61,3 +61,16 @@
 #details {
     width: 100%;
 }
+
+#customerRemarks {
+    height:120px;
+}
+
+#order-bg {    
+    max-width: 600px;
+}
+
+.order-btn {
+    margin-top: 15px;
+    width: 115px;
+}
