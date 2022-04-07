@@ -6,16 +6,6 @@
     {
         $accountID = $_SESSION["accountID"];
     }
-
-    // build the query to display all data from table food_order
-    $query = "SELECT * FROM food";
-
-    // execute the query
-    if(!($result = mysqli_query($conn, $query)))
-    {
-        echo "<p>Could not execute query</p>";
-        die(mysqli_error($conn) . "</body></html>");
-    }
 ?>
 
 <style>
@@ -25,13 +15,21 @@
 
 <div class="container-lg position-relative">
     <div class="row g-2" id="spacer-2">
+        <?php
+            // build the query to display all data from table food_order
+            $query = "SELECT * FROM food WHERE category = 'Culinary'";
 
-    <?php
-        $count = 0; 
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-    ?>
-        <div class="col-lg-4 col-md-5 mx-4"> 
+            // execute the query
+            if(!($result = mysqli_query($conn, $query)))
+            {
+                echo "<p>Could not execute query</p>";
+                die(mysqli_error($conn) . "</body></html>");
+            }
+            $count = 0; 
+            while ($row = mysqli_fetch_assoc($result)) 
+            {
+        ?>
+        <div class="col-lg-4 col-md-5 mx-4 filterDiv culinary"> 
             <div class="card menu-card">
                 <div class="card-img-top">
                     <img class="food-img" src="images/<?php echo $row["image"]?>"  alt="...">
@@ -49,9 +47,9 @@
                     
                     <span class="col-6">
                         <div class="btn-group position-static bottom-0 start-50 translate-x">
-                            <button type="button" class="btn bi-dash-circle" data-type="minus"></button>
-                            <input type="text" class="form-control input-number" value="2">
-                            <button type="button" class="btn bi-plus-circle" data-type="plus"></button>
+                            <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button>
+                            <input type="text" class="form-control input-number" name="quantity" value="1" maxlength="2" max="10" size="1" id="number">
+                            <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button>
                         </div>
                         <!-- End of .btn-group  -->
                     </span>
@@ -70,27 +68,146 @@
             <!-- End of .card  -->
         </div>
         
-    <?php
-            $count = $count + 1;
-            if ($count%2 == 0) {
-                echo "<div class=\"w-100\"></div>";
+        <?php
+                $count = $count + 1;
+                if ($count%2 == 0) {
+                    echo "<div class=\"w-100 filterDiv culinary\"></div>";
+                }
             }
-        }
-    ?>
+        ?>
 
-        <!-- echo end from here -->
+        <?php
+            // build the query to display all data from table food_order
+            $query = "SELECT * FROM food WHERE category = 'Beverage'";
 
-             <!-- Force next columns to break to new line -->
+            // execute the query
+            if(!($result = mysqli_query($conn, $query)))
+            {
+                echo "<p>Could not execute query</p>";
+                die(mysqli_error($conn) . "</body></html>");
+            }
 
+            $count = 0; 
+            while ($row = mysqli_fetch_assoc($result)) 
+            {
+        ?>
+                <div class="col-lg-4 col-md-5 mx-4 filterDiv beverages"> 
+                    <div class="card menu-card">
+                        <div class="card-img-top">
+                            <img class="food-img" src="images/<?php echo $row["image"]?>"  alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $row["name"]?></h5>
+                            <h6><b><span>Price: RM</span><span class="price-font"><?php echo $row["price"]?></span></b></h6>
+                            <div class="food-desc">
+                                <p class="card-text"><?php echo $row["description"]?></p>
+                            </div>
+
+                            <?php
+                                if (isset($_SESSION["accountID"])) {
+                            ?>
+                            
+                            <span class="col-6">
+                                <div class="btn-group position-static bottom-0 start-50 translate-x">
+                                    <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button>
+                                    <input type="text" class="form-control input-number" name="quantity" value="1" maxlength="2" max="10" size="1" id="number">
+                                    <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button>
+                                </div>
+                                <!-- End of .btn-group  -->
+                            </span>
+                            <!-- End of .col-6  -->
+                            <span class="addtoorder-btn">
+                                <button type="button" class="btn btn-primary">Add to Order</button>
+                            </span>
+                            <!-- End of .col-6  -->
+
+                            <?php
+                                }
+                            ?>
+                        </div>
+                        <!-- End of .card-body  -->
+                    </div>
+                    <!-- End of .card  -->
+                </div>
+        
+        <?php
+                $count = $count + 1;
+                if ($count%2 == 0) {
+                    echo "<div class=\"w-100 filterDiv beverages\"></div>";
+                }
+            }
+        ?>
+
+        <?php
+            // build the query to display all data from table food_order
+            $query = "SELECT * FROM food WHERE category = 'Snacks'";
+
+            // execute the query
+            if(!($result = mysqli_query($conn, $query)))
+            {
+                echo "<p>Could not execute query</p>";
+                die(mysqli_error($conn) . "</body></html>");
+            }
+            $count = 0; 
+            while ($row = mysqli_fetch_assoc($result)) 
+            {
+        ?>
+        <div class="col-lg-4 col-md-5 mx-4 filterDiv snacks"> 
+            <div class="card menu-card">
+                <div class="card-img-top">
+                    <img class="food-img" src="images/<?php echo $row["image"]?>"  alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $row["name"]?></h5>
+                    <h6><b><span>Price: RM</span><span class="price-font"><?php echo $row["price"]?></span></b></h6>
+                    <div class="food-desc">
+                        <p class="card-text"><?php echo $row["description"]?></p>
+                    </div>
+
+                    <?php
+                        if (isset($_SESSION["accountID"])) {
+                    ?>
+                    
+                    <span class="col-6">
+                        <div class="btn-group position-static bottom-0 start-50 translate-x">
+                            <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button>
+                            <input type="text" class="form-control input-number" name="quantity" value="1" maxlength="2" max="10" size="1" id="number">
+                            <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button>
+                        </div>
+                        <!-- End of .btn-group  -->
+                    </span>
+                    <!-- End of .col-6  -->
+                    <span class="addtoorder-btn">
+                        <button type="button" class="btn btn-primary">Add to Order</button>
+                    </span>
+                    <!-- End of .col-6  -->
+
+                    <?php
+                        }
+                    ?>
+                </div>
+                <!-- End of .card-body  -->
+            </div>
+            <!-- End of .card  -->
+        </div>
+        
+        <?php
+                $count = $count + 1;
+                if ($count%2 == 0) {
+                    echo "<div class=\"w-100 filterDiv snacks\"></div>";
+                }
+            }
+        ?>
       
 
     <div class="position-absolute float-end top-0 end-0" id ="menu-rightbar-container">
         <div class="col-12 col-lg-12 ">
             <div id="menu-nav">
-                <div class="list-group">
-                     <button class="list-group-item list-group-item-action active" aria-current="true">Culinary</button>
-                    <button class="list-group-item list-group-item-action">Beverages</button>
-                    <button class="list-group-item list-group-item-action">Snacks</button>
+                <div id="menufilter" class="list-group">
+                    <button class="list-group-item list-group-item-action filterbtn" onclick="filterSelection('all')">Show all</button>
+                    <button class="list-group-item list-group-item-action filterbtn" onclick="filterSelection('culinary')">Culinary</button>
+                    <button class="list-group-item list-group-item-action filterbtn" onclick="filterSelection('beverages')">Beverages</button>
+                    <button class="list-group-item list-group-item-action filterbtn" onclick="filterSelection('snacks')">Snacks</button>
                 </div>
                 <!-- End of .list-group  -->
             </div>
@@ -150,8 +267,6 @@
                             }
                             $totalPrice = number_format($totalPrice,2);
                             $_SESSION["totalPrice"]= $totalPrice;
-
-
                             ?>
 
                         </tbody>
@@ -208,6 +323,10 @@
     <!-- End of .position-absolute .float-end .top-0 .end-0 -->
 </div>
 <!-- End of .container-lg .position-relative -->
+
+<script>
+    <?php include 'scripts/menu.js' ?>
+</script>
 
 <?php
 include_once 'footer.php';

@@ -53,3 +53,11 @@
     float: right;
     margin-right: 20px;
 }
+
+.filterDiv {
+    display: none; /*Hidden by default*/
+}
+
+.show {
+    display: block;
+}
