@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
             <div class="container-lg">
                 <a class="navbar-brand h1 mb-0" href="#">
                     <img src="images/Yum!.png" alt="Yum.png" width="ms-auto" height="45"
@@ -73,15 +73,15 @@
 
 
     <form action="" method="post">
-        <div class="container-lg">
+        <div class="container-lg" id="spacer-2">
             <div class=card mb-3" id="details">
                 <div class="row g-0">
-                    <div class="col-md-6 col-lg-6">
+                    <div class="col-md-7 col-lg-6">
                         <img src="images/checkout-bg2.jpg" class="img-fluid rounded-start" id="order-bg" alt="bg.png">
                     </div>
                     <!-- End of .col-md-6 .col-lg-6  -->
 
-                    <div class="col-md-6 col-lg-6 p-3">
+                    <div class="col-md-5 col-lg-6 p-3">
                         <div class="card-body">
                             <h5 class="card-title h3 mb-5 fw-bold">Order Details</h5>
                             <div class="mb-3">
@@ -120,7 +120,19 @@
                                 </div>
                                 <!-- End of .form-check form-check-inline  -->
                             </div>
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control" id="customerAddress1"
+                                    placeholder="no tracking pls" required>
+                                <label for="customerAddress1">Address Line 1</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control" id="customerAddress2"
+                                    placeholder="no tracking pls" required>
+                                <label for="customerAddress2">Address Line 2</label>
+                            </div>
+                            <!-- End of .form-floating  -->
                             <!-- End of .mb-4  -->
+
                             <div class="form-floating mb-4">
                                 <textarea class="form-control" placeholder="Milo Ice tak mau Ice"
                                     id="customerRemarks"></textarea>
