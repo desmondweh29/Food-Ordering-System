@@ -60,7 +60,7 @@
             ?>
 
             <button type="submit" class="btn-green btn-left" name ="register">Register</button>
-            <button type="button" class="btn-red btn-right" onclick="document.location='login.php'">Back</button>
+            <button type="button" class="btn-red btn-right" onclick="document.location='login.php'">Login</button>
         </form>
         
 

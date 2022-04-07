@@ -42,6 +42,10 @@
                     <div class="food-desc">
                         <p class="card-text"><?php echo $row["description"]?></p>
                     </div>
+
+                    <?php
+                        if (isset($_SESSION["accountID"])) {
+                    ?>
                     
                     <span class="col-6">
                         <div class="btn-group position-static bottom-0 start-50 translate-x">
@@ -56,6 +60,10 @@
                         <button type="button" class="btn btn-primary">Add to Order</button>
                     </span>
                     <!-- End of .col-6  -->
+
+                    <?php
+                        }
+                    ?>
                 </div>
                 <!-- End of .card-body  -->
             </div>
@@ -145,26 +153,7 @@
 
 
                             ?>
-                            <!--
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Chicken testing testing testing</td>
-                                <td>10</td>
-                                <td>7.50</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Chicken rice 2</td>
-                                <td>1</td>
-                                <td>7.50</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Pizza</td>
-                                <td>1</td>
-                                <td>7.50</td>
-                            </tr>
-                -->
+
                         </tbody>
                         <!-- End of tbody  -->
                         <tfoot>
@@ -197,7 +186,16 @@
                 } else {
             ?>
 
-            <!-- Ask user to login -->
+                <div class="card" id="spacer-1">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold mb-4">Login or Register</h5>
+                        <h7 class="card-text mb-4">Looks like you are not logged in.</h7>
+                        <p class="card-text mb-4">Do <a href="login.php">login</a> or <a href="register.php">register</a> now to start ordering our yummy food!</p>
+                        
+                    </div>
+                    <!-- End of .card-body -->
+                </div>
+                <!-- End of #spacer-1 .card  -->
 
             <?php
                 }

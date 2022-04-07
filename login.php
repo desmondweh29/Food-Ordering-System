@@ -53,7 +53,7 @@
 
             <div class="btn-group">
                 <button type="submit" class="btn-green btn-left" name="login">Login</button>
-                <button type="button" class="btn-red btn-right" onclick="document.location='index.php'">Back</button>
+                <button type="button" class="btn-red btn-right" onclick="document.location='index.php'">Home</button>
             </div>
         </form>
 
