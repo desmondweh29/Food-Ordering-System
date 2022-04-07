@@ -1,5 +1,6 @@
 <?php
-include_once 'header.php';
+    include_once 'header.php';
+    include_once './include/db_handler.php';
 ?>
 
 <div id="section-1" class="container-lg">
@@ -14,6 +15,22 @@ include_once 'header.php';
                     <h4 class="text-center mt-5 mb-5 text-capitalize">Thank You! <br> Your Order has been received
                         by
                         the Kitchen.</h4>
+                    <?php
+                        if (isset($_GET["orderID"])) {
+                            $orderID = $_GET["orderID"];
+                            // build the query to display all data from table food_order
+                            $query = "SELECT * FROM food_order WHERE orderID = $orderID";
+
+                            // execute the query
+                            if(!($result = mysqli_query($conn, $query)))
+                            {
+                                echo "<p>Could not execute query</p>";
+                                die(mysqli_error($conn) . "</body></html>");
+                            }
+                            $row = mysqli_fetch_assoc($result)
+                            
+                    
+                    ?>
                     <h5 class="card-title fw-bold fs-2 mb-5 text-center">Order Receipt</h5>
 
                     <table class="table table-borderless mx-auto w-auto fs-6">
@@ -21,61 +38,64 @@ include_once 'header.php';
                             <tr>
                                 <th scope="col">Order ID</th>
                                 <td>:</td>
-                                <td>#12344</td>
+                                <td><?php echo $row["orderID"]?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Name</th>
                                 <td>:</td>
-                                <td>John</td>
+                                <td><?php echo $row["customer_name"]?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Contact Number</th>
                                 <td>:</td>
-                                <td>0123456789</td>
+                                <td><?php echo $row["telno"]?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Date</th>
                                 <td>:</td>
-                                <td>8 April 2022</td>
+                                <td><?php echo $row["date"]?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Time</th>
                                 <td>:</td>
-                                <td>12:45</td>
+                                <td><?php echo date_format(date_create($row["date"]),"d F Y")?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Food</th>
                                 <td>:</td>
-                                <td>Milo x1 <br> Mushroom Soup x1</td>
+                                <td><?php echo date_format(date_create($row["time"]),"g:i a")?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Price (RM)</th>
                                 <td>:</td>
-                                <td>69.90</td>
+                                <td><?php echo $row["price"]?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Type</th>
                                 <td>:</td>
-                                <td>Delivery</td>
+                                <td><?php echo $row["type"]?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Address1</th>
                                 <td>:</td>
-                                <td>Jalan Ayer Keroh Lama, </td>
+                                <td><?php echo $row["address"]?></td>
                             </tr>
-                            <tr>
-                                <th scope="col">Address2</th>
-                                <td>:</td>
-                                <td>75450 Bukit Beruang, Melaka</td>
-                            </tr>
+
                             <tr>
                                 <th scope="col">Remarks</th>
                                 <td>:</td>
-                                <td>Milo ice tak mau ice. <br> Extra sauce.</td>
+                                <td><?php echo $row["remarks"]?></td>
                             </tr>
                         </tbody>
                         <!-- End of tbody  -->
                     </table>
+                    <div class="text-center mt-5">
+                        <button type="button" class="btn btn-primary" onclick="document.location='menu.php'">Order Again</button>
+                        <button type="button" class="btn btn-primary offset-lg-1" onclick="document.location='index.php'">Return Home</button>
+                    </div>
+                    <?php
+                        }
+                    ?>
                     <!-- End of .table .table-borderless mx-auto w-auto  -->
                 </div>
                 <!-- End of .card-body  -->

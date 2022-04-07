@@ -10,6 +10,10 @@
 
 <style>
         <?php include 'styles/menu.css' ?>
+
+        .error {
+            color: red;
+        }
 </style>
 
 
@@ -240,6 +244,7 @@
 
             <div class="card" id="order-list">
                 <div class="checkout-body">
+                <form action="./include/orderCart_handler.php" method="POST">
                     <h5 class="card-title">Your Order</h5>
                     <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -276,12 +281,14 @@
                             }
 
                             foreach ($cartArray as $key => $value) {
+                                $price = $cartArray[$key]['M_Price'] / $cartArray[$key]['M_Quantity'];
                                 echo "<tr>";
                                 echo "<th scope='row'>1</th>";
                                 echo "<td>".$cartArray[$key]['M_Name']."</td>";
                                 echo "<td>".$cartArray[$key]['M_Quantity']."</td>";
-                                echo "<td>".$cartArray[$key]['M_Price']."</td>";
-                                $totalPrice = $totalPrice + $cartArray[$key]['M_Price']*$cartArray[$key]['M_Quantity'];
+                                echo "<td>".$price."</td>";
+                                // $totalPrice = $totalPrice + $cartArray[$key]['M_Price']*$cartArray[$key]['M_Quantity'];
+                                $totalPrice = $cartArray[$key]['M_Price'];
                                 //echo "<td id=''>  ".$totalPrice." </td>";
                                 echo "</tr>";
 
@@ -289,6 +296,8 @@
                             $totalPrice = number_format($totalPrice,2);
                             $_SESSION["totalPrice"]= $totalPrice;
                             ?>
+
+                      
 
                         </tbody>
                         <!-- End of tbody  -->
@@ -302,20 +311,35 @@
                                 <th colspan="3">Total (RM) :</th>
                                 <?php echo "<th> $totalPrice </th>"?>
                             </tr>
-                            <tr>
-                                <form action="./include/orderCart_handler.php" method="POST">
+                            <?php
+                            if (isset($_GET["error"])) {
+                                if ($_GET["error"] == "noorderplaced") {
+                                    echo "<tr><td colspan=\"4\"class=\"error\">No order placed!</td></tr>";
+                                } else if ($_GET["error"] == "noordertoclear") {
+                                    echo "<tr><td colspan=\"4\"class=\"error\">No order to clear!</td></tr>";
+                                }
+                            }
+                            else
+                            {
+                                echo "<tr><td><br></td></tr>";
+                            }
+                            ?>
+                            <tr>                
                                 <th colspan="2"><button type="submit" name="orderNow" class="btn btn-primary order-btn1">Order Now</button>
                                 </th>
                                 <th colspan="2"><button type="submit" name="clearList" class="btn btn-danger order-btn1">Clear List</button>
                                 </th>
-                                </form>     
                             </tr>
+
                         </tfoot>
                         <!-- End of tfoot  -->
                     </table>
                     <!-- End of .table .table-borderless -->
+                    </form> 
                 </div>
                 <!-- End of .card-body -->
+                   
+
             </div>
             <!-- End of #order-list .card  -->
             <?php
