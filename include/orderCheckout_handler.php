@@ -3,7 +3,6 @@
     require_once 'db_handler.php';
     $userID = $_SESSION["accountID"];
     $email = $_SESSION["email"];
-    $totalPrice = $_SESSION['totalprice'];
     //$cprice = $_SESSION["cprice"];
     //$cfoodID = $_SESSION["menuID"];
 
