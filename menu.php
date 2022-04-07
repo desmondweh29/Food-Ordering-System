@@ -130,6 +130,7 @@
                                 echo "</tr>";
 
                             }
+                            $totalPrice = number_format($totalPrice,2);
 
 
 
@@ -164,13 +165,15 @@
                             </tr>
                             <tr>
                                 <th colspan="3">Total (RM) :</th>
-                                <th>0.00</th>
+                                <?php echo "<th> $totalPrice </th>"?>
                             </tr>
                             <tr>
-                                <th colspan="2"><button type="button" class="btn btn-primary order-btn1">Order Now</button>
+                                <form action="./include/orderCart_handler.php" method="POST">
+                                <th colspan="2"><button type="submit" name="orderNow" class="btn btn-primary order-btn1">Order Now</button>
                                 </th>
-                                <th colspan="2"><button type="button" class="btn btn-danger order-btn1">Clear List</button>
+                                <th colspan="2"><button type="submit" name="clearList" class="btn btn-danger order-btn1">Clear List</button>
                                 </th>
+                                </form>     
                             </tr>
                         </tfoot>
                         <!-- End of tfoot  -->
