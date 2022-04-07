@@ -30,7 +30,7 @@ session_start();
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
             <div class="container-lg">
                 <a class="navbar-brand h1 mb-0" href="index.php">
                     <img src="images/Yum!.png" alt="Yum.png" width="ms-auto" height="45" class="d-inline-block align-text-center"> YUM! Cafe
