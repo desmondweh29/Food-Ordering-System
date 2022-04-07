@@ -282,6 +282,7 @@
 
                             foreach ($cartArray as $key => $value) {
                                 $price = $cartArray[$key]['M_Price'] / $cartArray[$key]['M_Quantity'];
+                                $price = number_format((float)$price, 2, '.', '');
                                 echo "<tr>";
                                 echo "<th scope='row'>1</th>";
                                 echo "<td>".$cartArray[$key]['M_Name']."</td>";
