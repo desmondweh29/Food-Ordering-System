@@ -101,6 +101,40 @@
                         </thead>
                         <!-- End of thead  -->
                         <tbody>
+                            <?php
+                            require_once './include/db_handler.php';
+                            $email = $_SESSION["email"];
+                            $userID = $_SESSION['accountID'];
+
+                            $cartArray = array();//2d array 
+                            $rowKey = 0;
+                            $totalPrice =0;
+                            $cartQuery="SELECT * FROM cart where accountID = '$userID'";
+
+                            //if statement
+                            $cartResult=mysqli_query($conn,$cartQuery);
+                            $cartArray = mysqli_fetch_all($cartResult,MYSQLI_ASSOC);
+                            if(!$cartResult){
+                                header("location: ./ordercart.php?error=didnotwork");
+                                exit();
+                            }
+
+                            foreach ($cartArray as $key => $value) {
+                                echo "<tr>";
+                                echo "<th scope='row'>1</th>";
+                                echo "<td>".$cartArray[$key]['M_Name']."</td>";
+                                echo "<td>".$cartArray[$key]['M_Quantity']."</td>";
+                                echo "<td>".$cartArray[$key]['M_Price']."</td>";
+                                $totalPrice = $totalPrice + $cartArray[$key]['M_Price']*$cartArray[$key]['M_Quantity'];
+                                //echo "<td id=''>  ".$totalPrice." </td>";
+                                echo "</tr>";
+
+                            }
+
+
+
+                            ?>
+                            <!--
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Chicken testing testing testing</td>
@@ -119,6 +153,7 @@
                                 <td>1</td>
                                 <td>7.50</td>
                             </tr>
+                -->
                         </tbody>
                         <!-- End of tbody  -->
                         <tfoot>
