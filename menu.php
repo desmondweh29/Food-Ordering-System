@@ -5,7 +5,7 @@ include_once 'header.php';
 <div class="container-lg position-relative">
     <div class="row g-2">
         <div class="col-4 col-lg-3 col-md-4">
-            <div class="card">
+            <div class="card menu-card">
                 <img src="images/food.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chicken Rice</h5>
@@ -31,7 +31,7 @@ include_once 'header.php';
         </div>
         <!--End of .col-4 .col-lg-3 .col-md-4  -->
         <div class="col-6 col-lg-3 col-md-4">
-            <div class="card">
+            <div class="card menu-card">
                 <img src="images/food.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chicken Rice</h5>
@@ -61,7 +61,7 @@ include_once 'header.php';
         <div class="w-100"></div>
 
         <div class="col-4 col-lg-3 col-md-4">
-            <div class="card">
+            <div class="card menu-card">
                 <img src="images/food.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chicken Rice</h5>
@@ -87,7 +87,7 @@ include_once 'header.php';
         </div>
         <!--End of .col-4 .col-lg-3 .col-md-4  -->
         <div class="col-6 col-lg-3 col-md-4">
-            <div class="card">
+            <div class="card menu-card">
                 <img src="images/food.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chicken Rice</h5>
@@ -117,7 +117,7 @@ include_once 'header.php';
         <div class="w-100"></div>
 
         <div class="col-5 col-lg-3 col-md-4">
-            <div class="card">
+            <div class="card menu-card">
                 <img src="images/food.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chicken Rice</h5>
@@ -144,7 +144,7 @@ include_once 'header.php';
         <!--End of .col-4 .col-lg-3 .col-md-4  -->
 
         <div class="col-5 col-lg-3 col-md-4">
-            <div class="card">
+            <div class="card menu-card">
                 <img src="images/food.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chicken Rice</h5>
