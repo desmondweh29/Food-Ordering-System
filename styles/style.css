@@ -57,6 +57,11 @@
     width: 115px;
 }
 
+.order-btn1 {
+    margin-top: 10px;
+    width: 110px;
+}
+
 #right-order-btn {
     float: right;
 }
