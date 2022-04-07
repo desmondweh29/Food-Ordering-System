@@ -24,10 +24,9 @@
     width: 50%;
 }
 
-.card {
-    max-width: 18.5rem;
-    /* margin: 15px auto 15px auto;
-    margin: top | right | bottom | left  */
+.menu-card {
+    max-width: 18rem;
+    margin-bottom: 10px;    
 }
 
 #menu-nav {
@@ -42,6 +41,8 @@
 
 #details {
     width: 100%;
+    margin: 15px auto 15px auto;
+    /* margin: top | right | bottom | left  */
 }
 
 #customerRemarks {
