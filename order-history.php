@@ -80,7 +80,7 @@
 
                     <tr>
                         <th>Date & Time: </th>
-                        <td>" . $row["date"] . " " . $row["time"]. "</td>
+                        <td>". date_format(date_create($row["date"]),"d F Y") . ", " . date_format(date_create($row["time"]),"g:i a"). "</td>
                     </tr>
 
                     <tr>
@@ -111,6 +111,13 @@
 
 
     <script>
+        // FORMATE DATES
+        const monthnames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        function formatDate(dateString) {
+            let date = new Date(dateString);
+            return `${date.getDate()} ${monthnames[date.getMonth()]}`;
+        }
+
         // Get the elements with class="column"
         var elements = document.getElementsByClassName("column");
 
