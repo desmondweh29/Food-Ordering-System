@@ -23,8 +23,17 @@ $mail->SMTPSecure = 'tls';
 $mail->Port = 2525;
 
 $e_subject = "Reset your website on test.com";
-$e_msg = "Hi there, click on this <a href=\"http://localhost/Webtech/PHP/Food-Ordering-System-/reset-password.php?token=".$token."&email=".$email."\">link</a>to reset your password.";
-$e_msg = wordwrap($e_msg,70);//split it to new line if too long
+//$e_msg = "Hi there, click on this <a href=\"http://localhost/Webtech/PHP/Food-Ordering-System-/reset-password.php?token=".$token."&email=".$email."\">link</a>to reset your password.";
+$email_vars = array(
+    'link' =>"<a href=\"http://localhost/Webtech/PHP/Food-Ordering-System-/reset-password.php?token=".$token."&email=".$email."\">",
+);
+$e_msg = file_get_contents("./emailtemplate.html");
+if(isset($email_vars)){
+    foreach ($email_vars as $key => $value) {
+        $e_msg = str_replace('{'.strtoupper($key).'}', $value, $e_msg);
+    }
+}
+//$e_msg = wordwrap($e_msg,70);//split it to new line if too long
 $e_header = "From: info@yum.com";
 
 $mail->setFrom('info@mailtrap.io', 'Mailtrap');
