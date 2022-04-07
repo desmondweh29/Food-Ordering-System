@@ -18,6 +18,11 @@
     }
 ?>
 
+<style>
+        <?php include 'styles/menu.css' ?>
+</style>
+
+
 <div class="container-lg position-relative">
     <div class="row g-2" id="spacer-2">
 
@@ -26,13 +31,18 @@
         while ($row = mysqli_fetch_assoc($result)) 
         {
     ?>
-        <div class="col-lg-3 col-md-4"> 
+        <div class="col-lg-4 col-md-5 mx-4"> 
             <div class="card menu-card">
-                <img src="images/<?php echo $row["image"]?>" class="card-img-top" alt="...">
+                <div class="card-img-top">
+                    <img class="food-img" src="images/<?php echo $row["image"]?>"  alt="...">
+                </div>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $row["name"]?></h5>
                     <h6><b><span>Price: RM</span><span class="price-font"><?php echo $row["price"]?></span></b></h6>
-                    <p class="card-text"><?php echo $row["description"]?></p>
+                    <div class="food-desc">
+                        <p class="card-text"><?php echo $row["description"]?></p>
+                    </div>
+                    
                     <span class="col-6">
                         <div class="btn-group position-static bottom-0 start-50 translate-x">
                             <button type="button" class="btn bi-dash-circle" data-type="minus"></button>
@@ -42,7 +52,7 @@
                         <!-- End of .btn-group  -->
                     </span>
                     <!-- End of .col-6  -->
-                    <span class="col-6">
+                    <span class="addtoorder-btn">
                         <button type="button" class="btn btn-primary">Add to Order</button>
                     </span>
                     <!-- End of .col-6  -->
@@ -83,7 +93,7 @@
             ?>
 
             <div class="card" id="order-list">
-                <div class="card-body">
+                <div class="checkout-body">
                     <h5 class="card-title">Your Order</h5>
                     <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk

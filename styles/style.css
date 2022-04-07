@@ -32,17 +32,9 @@
     margin-top: 95px;
 }
 
-.menu-card {
-    max-width: 18rem;
-    margin: 5px auto 5px auto;  
-}
 
-#menu-nav {
-    margin: 14px auto 20px auto;
-    width: 18.5rem;
 
-    /* margin: top | right | bottom | left  */
-}
+
 
 #order-list {
     width: 18.5rem;
@@ -81,16 +73,4 @@
 #left-order-btn {
     float: left;
 }
-
-#menu-rightbar-container {
-    display: block;
-    float: right;
-    width: 300px;
-}
-
-.price-font {
-    font-style: italic;
-    color: blue;
-}
-
 

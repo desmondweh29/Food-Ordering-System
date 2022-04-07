@@ -1,0 +1,55 @@
+#menu-rightbar-container {
+    display: block;
+    float: right;
+    width: 300px;
+}
+
+#menu-nav {
+    margin: 5px auto 20px auto;
+    width: 18.5rem;
+
+    /* margin: top | right | bottom | left  */
+}
+
+.price-font {
+    font-style: italic;
+    color: blue;
+}
+
+.menu-card {
+    width: auto;
+    height: 520px;
+    margin: 5px auto 5px auto;  
+}
+
+
+.food-img {
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+}
+
+.card-body {
+    width: auto;
+    height: 200px;
+}
+
+.food-desc {
+    height: 90px;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+.checkout-body {
+    height: auto;
+    padding: 10px;
+}
+
+.addtoorder-btn {
+    float: right;
+    margin-right: 20px;
+}
