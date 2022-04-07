@@ -30,12 +30,15 @@
             {
         ?>
         <div class="col-lg-4 col-md-5 mx-4 filterDiv culinary"> 
+            <form action="./include/menu-addcart.handler.php" method="POST">
             <div class="card menu-card">
                 <div class="card-img-top">
                     <img class="food-img" src="images/<?php echo $row["image"]?>"  alt="...">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $row["name"]?></h5>
+                    <input type="test" name="name" value="<?php echo $row["name"]?>" hidden/>
+                    <input type="test" name="category" value="<?php echo $row["category"]?>" hidden/>
+                    <input type="test" name="price" value="<?php echo $row["price"]?>" hidden/>                 <h5 class="card-title"><?php echo $row["name"]?></h5>
                     <h6><b><span>Price: RM</span><span class="price-font"><?php echo $row["price"]?></span></b></h6>
                     <div class="food-desc">
                         <p class="card-text"><?php echo $row["description"]?></p>
@@ -45,19 +48,21 @@
                         if (isset($_SESSION["accountID"])) {
                     ?>
                     
-                    <span class="col-6">
-                        <div class="btn-group position-static bottom-0 start-50 translate-x">
-                            <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button>
-                            <input type="text" class="form-control input-number" name="quantity" value="1" maxlength="2" max="10" size="1" id="number">
-                            <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button>
-                        </div>
-                        <!-- End of .btn-group  -->
-                    </span>
-                    <!-- End of .col-6  -->
-                    <span class="addtoorder-btn">
-                        <button type="button" class="btn btn-primary">Add to Order</button>
-                    </span>
-                    <!-- End of .col-6  -->
+                    
+                        <span class="col-6">
+                            <div class="btn-group position-static bottom-0 start-50 translate-x">
+                                <!-- <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button> -->
+                                <input type="number" class="form-control input-number" name="quantity" value="1" maxlength="2" min="1" max="10" size="1">
+                                <!-- <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button> -->
+                            </div>
+                            <!-- End of .btn-group  -->
+                        </span>
+                        <!-- End of .col-6  -->
+                        <span class="addtoorder-btn">
+                            <button type="submit" class="btn btn-primary" name="addtoorder">Add to Order</button>
+                        </span>
+                        <!-- End of .col-6  -->
+                    
 
                     <?php
                         }
@@ -65,6 +70,7 @@
                 </div>
                 <!-- End of .card-body  -->
             </div>
+            </form>
             <!-- End of .card  -->
         </div>
         
@@ -91,35 +97,42 @@
             while ($row = mysqli_fetch_assoc($result)) 
             {
         ?>
-                <div class="col-lg-4 col-md-5 mx-4 filterDiv beverages"> 
+                <div class="col-lg-4 col-md-5 mx-4 filterDiv beverages">
+                    <form action="./include/menu-addcart.handler.php" method="POST"> 
                     <div class="card menu-card">
                         <div class="card-img-top">
                             <img class="food-img" src="images/<?php echo $row["image"]?>"  alt="...">
                         </div>
                         <div class="card-body">
+                          <input type="test" name="name" value="<?php echo $row["name"]?>" hidden/>
+                          <input type="test" name="category" value="<?php echo $row["category"]?>" hidden/>
+                           <input type="test" name="price" value="<?php echo $row["price"]?>" hidden/>
                             <h5 class="card-title"><?php echo $row["name"]?></h5>
                             <h6><b><span>Price: RM</span><span class="price-font"><?php echo $row["price"]?></span></b></h6>
                             <div class="food-desc">
                                 <p class="card-text"><?php echo $row["description"]?></p>
                             </div>
+                            
 
                             <?php
                                 if (isset($_SESSION["accountID"])) {
                             ?>
                             
-                            <span class="col-6">
-                                <div class="btn-group position-static bottom-0 start-50 translate-x">
-                                    <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button>
-                                    <input type="text" class="form-control input-number" name="quantity" value="1" maxlength="2" max="10" size="1" id="number">
-                                    <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button>
-                                </div>
-                                <!-- End of .btn-group  -->
-                            </span>
-                            <!-- End of .col-6  -->
-                            <span class="addtoorder-btn">
-                                <button type="button" class="btn btn-primary">Add to Order</button>
-                            </span>
-                            <!-- End of .col-6  -->
+                            
+                                <span class="col-6">
+                                    <div class="btn-group position-static bottom-0 start-50 translate-x">
+                                        <!-- <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button> -->
+                                        <input type="number" class="form-control input-number" name="quantity" value="1" maxlength="2" min="1" max="10" size="1">
+                                        <!-- <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button> -->
+                                    </div>
+                                    <!-- End of .btn-group  -->
+                                </span>
+                                <!-- End of .col-6  -->
+                                <span class="addtoorder-btn">
+                                    <button type="submit" class="btn btn-primary" name="addtoorder">Add to Order</button>
+                                </span>
+                                <!-- End of .col-6  -->
+                            
 
                             <?php
                                 }
@@ -128,6 +141,7 @@
                         <!-- End of .card-body  -->
                     </div>
                     <!-- End of .card  -->
+                    </form>
                 </div>
         
         <?php
@@ -153,11 +167,15 @@
             {
         ?>
         <div class="col-lg-4 col-md-5 mx-4 filterDiv snacks"> 
+            <form action="./include/menu-addcart.handler.php" method="POST">
             <div class="card menu-card">
                 <div class="card-img-top">
                     <img class="food-img" src="images/<?php echo $row["image"]?>"  alt="...">
                 </div>
                 <div class="card-body">
+                    <input type="test" name="name" value="<?php echo $row["name"]?>" hidden/>
+                    <input type="test" name="category" value="<?php echo $row["category"]?>" hidden/>
+                    <input type="test" name="price" value="<?php echo $row["price"]?>" hidden/>
                     <h5 class="card-title"><?php echo $row["name"]?></h5>
                     <h6><b><span>Price: RM</span><span class="price-font"><?php echo $row["price"]?></span></b></h6>
                     <div class="food-desc">
@@ -168,19 +186,21 @@
                         if (isset($_SESSION["accountID"])) {
                     ?>
                     
-                    <span class="col-6">
-                        <div class="btn-group position-static bottom-0 start-50 translate-x">
-                            <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button>
-                            <input type="text" class="form-control input-number" name="quantity" value="1" maxlength="2" max="10" size="1" id="number">
-                            <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button>
-                        </div>
-                        <!-- End of .btn-group  -->
-                    </span>
-                    <!-- End of .col-6  -->
-                    <span class="addtoorder-btn">
-                        <button type="button" class="btn btn-primary">Add to Order</button>
-                    </span>
-                    <!-- End of .col-6  -->
+                    
+                        <span class="col-6">
+                            <div class="btn-group position-static bottom-0 start-50 translate-x">
+                                <!-- <button type="button" class="btn bi-dash-circle" onclick="decrementValue()" value="-" data-type="minus"></button> -->
+                                <input type="number" class="form-control input-number" name="quantity" value="1" maxlength="2" min="1" max="10" size="1">
+                                <!-- <button type="button" class="btn bi-plus-circle" onclick="incrementValue()" value="+" data-type="plus"></button> -->
+                            </div>
+                            <!-- End of .btn-group  -->
+                        </span>
+                        <!-- End of .col-6  -->
+                        <span class="addtoorder-btn">
+                            <button type="submit" class="btn btn-primary" name="addtoorder">Add to Order</button>
+                        </span>
+                        <!-- End of .col-6  -->
+                    
 
                     <?php
                         }
@@ -188,6 +208,7 @@
                 </div>
                 <!-- End of .card-body  -->
             </div>
+            </form>
             <!-- End of .card  -->
         </div>
         
