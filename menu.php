@@ -3,7 +3,7 @@ include_once 'header.php';
 ?>
 
 <div class="container-lg position-relative">
-    <div class="row g-2">
+    <div class="row g-2" id="spacer-2">
         <div class="col-4 col-lg-3 col-md-4">
             <div class="card menu-card">
                 <img src="images/food.jpg" class="card-img-top" alt="...">
