@@ -25,9 +25,9 @@
 }
 
 .card {
-    width: 18.5rem;
-    margin: 15px auto 15px auto;
-    /* margin: top | right | bottom | left  */
+    max-width: 18.5rem;
+    /* margin: 15px auto 15px auto;
+    margin: top | right | bottom | left  */
 }
 
 #menu-nav {
@@ -37,6 +37,7 @@
 
 #order-list {
     width: 18.5rem;
+    /* margin: auto 12px auto 12px; */
 }
 
 .title-profile {
@@ -74,3 +75,12 @@
     margin-top: 15px;
     width: 115px;
 }
+
+#right-order-btn {
+    float: right;
+}
+
+#left-order-btn {
+    float: left;
+}
+
