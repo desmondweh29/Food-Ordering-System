@@ -55,11 +55,11 @@ include_once 'header.php';
 
                         <div class="d-flex justify-content-center">
                             <div class="col-8 col-lg-9">
-                                <button class="btn btn-secondary order-btn" type="reset">Back</button>
+                                <button class="btn btn-secondary order-btn" id="left-order-btn" type="reset">Back</button>
                             </div>
                             <!-- End of .col-8 .col-lg-9  -->
                             <div class="col-4 col-lg-3">
-                                <button class="btn btn-primary order-btn" type="submit" name="makeOrder">Make Order</button>
+                                <button class="btn btn-primary order-btn" id="right-order-btn" type="submit" name="makeOrder">Make Order</button>
                             </div>
                             <!-- End of .col-4 .col-lg-3  -->
                         </div>
