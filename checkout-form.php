@@ -2,7 +2,7 @@
 include_once 'header.php';
 ?>
 
-<form action="" method="post">
+<form action="./include/orderCheckout_handler.php" method="post">
     <div class="container-lg">
         <div class=card mb-3" id="details">
             <div class="row g-0">
@@ -16,7 +16,7 @@ include_once 'header.php';
                         <h5 class="card-title h3 mb-5 fw-bold">Order Details</h5>
                         <div class="mb-3">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="customerName" placeholder="Zhe Kai" required>
+                                <input type="text" class="form-control" name="cname" id="customerName" placeholder="Zhe Kai" required>
                                 <label for="customerName">Name</label>
                             </div>
                             <!-- End of .form-floating  -->
@@ -25,7 +25,7 @@ include_once 'header.php';
 
                         <div class="mb-4">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="customerContact" placeholder="0123456789" required>
+                                <input type="text" class="form-control" name="cnum" id="customerContact" placeholder="0123456789" required>
                                 <label for="customerContact">Contact Number</label>
                             </div>
                             <!-- End of .form-floating  -->
@@ -48,7 +48,7 @@ include_once 'header.php';
                         </div>
                         <!-- End of .mb-4  -->
                         <div class="form-floating mb-4">
-                            <textarea class="form-control" placeholder="Milo Ice tak mau Ice" id="customerRemarks"></textarea>
+                            <textarea class="form-control" placeholder="Milo Ice tak mau Ice" id="customerRemarks" name="cremark"></textarea>
                             <label for="customerRemarks">Remarks</label>
                         </div>
                         <!-- End of .form-floating .mb-4  -->
@@ -59,7 +59,7 @@ include_once 'header.php';
                             </div>
                             <!-- End of .col-8 .col-lg-9  -->
                             <div class="col-4 col-lg-3">
-                                <button class="btn btn-primary order-btn" type="submit">Make Order</button>
+                                <button class="btn btn-primary order-btn" type="submit" name="makeOrder">Make Order</button>
                             </div>
                             <!-- End of .col-4 .col-lg-3  -->
                         </div>
