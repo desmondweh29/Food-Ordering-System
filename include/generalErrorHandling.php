@@ -176,3 +176,45 @@ function fetchtoken($conn,$email,$token,$password){
     exit();
 
 }
+
+function emptyInputChangePassword($password_current,$password_new,$password_confirm) {
+    if (empty($password_current) || empty($password_new) || empty($password_confirm)) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function checkCurrentPassword($conn, $email, $password_current) {
+    $emailExists=emailExists($conn,$email);
+    if($emailExists === false){
+        header("location: ../change-password.php?error=stmtfailed");
+        exit();
+    }
+
+    $pwdHashed = $emailExists["password"];
+    $checkPwd = password_verify($password_current, $pwdHashed);
+
+    if ($checkPwd === false) {
+        header("location: ../change-password.php?error=currentpasswordwrong");
+        exit();
+    }
+}
+
+function changePassword($conn,$email,$password) {
+    $sql_query = "UPDATE user_account SET password = ? where email = '$email'";
+    $stmt = mysqli_stmt_init($conn);
+    
+    if(!mysqli_stmt_prepare($stmt,$sql_query)){
+        header("location: ../change-password.php?error=stmtfailed");
+        exit();
+    }
+
+    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt,"s",$hashedPwd);
+    mysqli_stmt_execute($stmt);  
+    mysqli_stmt_close($stmt);
+    header("location: ../change-password.php?error=none");
+    exit();
+}

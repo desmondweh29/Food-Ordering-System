@@ -145,24 +145,16 @@ label {
 }
 
 .error {
+    margin: 0 0 0 0;    
     color: red ;
+}
+
+.success {
+    margin: 0 0 0 0;
+    color: rgb(18, 192, 3);
 }
 
 h2, h4 {
     color: black;
 }
 
-.title-profile {
-    margin-top: 10px;
-}
-
-.title-profile p
-{
-    font-style: bold;
-    /* font-weight: 800; */
-    font-size: 54px;
-    line-height: 54px;
-    text-align: center;
-    color: #ea2f2f;
-    margin-bottom: 30px;
-}
