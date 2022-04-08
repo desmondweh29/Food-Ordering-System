@@ -12,9 +12,9 @@
             <!-- End of .col-lg-5 col-md-6 -->
             <div class="col-lg-7 col-md-6">
                 <div class="card-body">
-                    <h4 class="text-center mt-5 mb-5 text-capitalize">Thank You! <br> Your Order has been received
+                    <h4 class="text-center mt-5 mb-5 text-capitalize">Thank You! <br> Your yummy order has been received
                         by
-                        the Kitchen.</h4>
+                        our kitchen!</h4>
                     <?php
                         if (isset($_GET["orderID"])) {
                             $orderID = $_GET["orderID"];
@@ -28,8 +28,6 @@
                                 die(mysqli_error($conn) . "</body></html>");
                             }
                             $row = mysqli_fetch_assoc($result)
-                            
-                    
                     ?>
                     <h5 class="card-title fw-bold fs-2 mb-5 text-center">Order Receipt</h5>
 
@@ -76,7 +74,7 @@
                                 <td><?php echo $row["type"]?></td>
                             </tr>
                             <tr>
-                                <th scope="col">Address1</th>
+                                <th scope="col">Address</th>
                                 <td>:</td>
                                 <td><?php echo $row["address"]?></td>
                             </tr>

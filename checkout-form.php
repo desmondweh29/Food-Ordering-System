@@ -1,14 +1,23 @@
 <?php
 include_once 'header.php';
 ?>
-
-<form action="./include/orderCheckout_handler.php" method="post">
-
 <style>
     .error {
         color: red;
     }
+
+    .activate {
+        display: block;
+    }
+
+    .deactivate {
+        display: none;
+    }
 </style>
+
+<form action="./include/orderCheckout_handler.php" method="post" name="checkOutForm">
+
+
         <div class="container-lg"  id="section-1">
             <div class="card mb-3" id="details">
                 <div class="row g-0">
@@ -44,22 +53,22 @@ include_once 'header.php';
                             <!-- <p class="mb-2 ">Type</p> -->
                             <div class="mb-4">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="type"
-                                        value="Pick-up" checked>
-                                    <label class="form-check-label" for="takeAway">Take Away</label>
+                                    <input class="form-check-input" type="radio" name="type" onchange="handleChange(this);" checked
+                                        value="Pick up">
+                                    <label class="form-check-label" for="Pick up">Pick up</label>
                                 </div>
                                 <!-- End of .form-check form-check-inline  -->
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="type"
+                                    <input class="form-check-input" type="radio" name="type" onchange="handleChange(this);"
                                         value="Delivery">
                                     <label class="form-check-label" for="delivery">Delivery</label>
                                 </div>
                                 <!-- End of .form-check form-check-inline  -->
                             </div>
 
-                            <div class="mb-4">
+                            <div id="address_input" class="mb-4 deactivate">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="address" placeholder="No29">
+                                    <input id="address_value" type="text" class="form-control" name="address" placeholder="No29">
                                     <label for="customerAddress">Address (For delivery only)</label>
                                 </div>
                                 <!-- End of .form-floating  -->
@@ -113,6 +122,20 @@ include_once 'header.php';
         <!-- End of .container-lg  -->
     </form>
     <!-- End of form  -->
+    
+    <script>
+        const input = document.getElementById("address_input");
+        function handleChange(src) {
+                if (src.value == "Pick up") {
+                    input.className = input.className.replace("activate", "deactivate");
+                    var address = document.getElementById("address_value");
+                    address.value = "";
+                }
+                if (src.value == "Delivery") {
+                    input.className = input.className.replace("deactivate", "activate");
+                }
+            }
+    </script>
 
 <?php
 include_once 'footer.php';
