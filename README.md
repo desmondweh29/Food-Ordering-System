@@ -8,7 +8,7 @@ please navigate to https://mailtrap.io/signin
 username: tanehao@hotmail.com
 password: test123
 
-The URL link sent in the reset password has to be modified manually to be similar with the localhost's path
+The URL link sent in the reset password has to be modified manually to be similar with the localhost's path as the website itself is not hosted on a live domain.
 
 
 --Database--
