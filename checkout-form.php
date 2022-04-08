@@ -13,6 +13,10 @@ include_once 'header.php';
     .deactivate {
         display: none;
     }
+
+    textarea {
+        resize: none;
+    }
 </style>
 
 <form action="./include/orderCheckout_handler.php" method="post" name="checkOutForm">
