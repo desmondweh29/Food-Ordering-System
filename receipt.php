@@ -49,17 +49,17 @@
                                 <td><?php echo $row["telno"]?></td>
                             </tr>
                             <tr>
-                                <th scope="col">Date</th>
+                                <th scope="col">Food</th>
                                 <td>:</td>
-                                <td><?php echo $row["date"]?></td>
+                                <td><?php echo $row["food"]?></td>
                             </tr>
                             <tr>
-                                <th scope="col">Time</th>
+                                <th scope="col">Date</th>
                                 <td>:</td>
                                 <td><?php echo date_format(date_create($row["date"]),"d F Y")?></td>
                             </tr>
                             <tr>
-                                <th scope="col">Food</th>
+                                <th scope="col">Time</th>
                                 <td>:</td>
                                 <td><?php echo date_format(date_create($row["time"]),"g:i a")?></td>
                             </tr>
