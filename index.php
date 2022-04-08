@@ -6,7 +6,7 @@
 
         <img src="images/food.jpg" alt="food.jpg" class="img-fluid mx-auto d-block">
         <div id="about-us">
-            <h2><br>About Our Cafe</h2>
+            <h2>About Our Cafe</h2>
             <p class="text-justify" style="font-family: cursive; ">
             Here at Yum's, we aim to bring you a beautiful dining experience.
             We have one simple vision. 
