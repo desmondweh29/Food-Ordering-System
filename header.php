@@ -66,7 +66,7 @@ session_start();
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="./include/logout.php">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="./include/logout.php">Log out</a></li>
                                 </ul>
                             </li>
 
@@ -74,7 +74,7 @@ session_start();
                         } else {
                         ?>
 
-                            <a href="./login.php" class="btn btn-outline-primary navbar-btn" id="btn-signin">Sign In</a>
+                            <a href="./login.php" class="btn btn-outline-primary navbar-btn" id="btn-signin">Log In</a>
 
                         <?php
                         }
