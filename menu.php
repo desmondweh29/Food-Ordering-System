@@ -274,20 +274,20 @@
                                 header("location: ./ordercart.php?error=didnotwork");
                                 exit();
                             }
-
+                            $cartcount = 1;
                             foreach ($cartArray as $key => $value) {
                                 $price = $cartArray[$key]['M_Price'] / $cartArray[$key]['M_Quantity'];
                                 $price = number_format((float)$price, 2, '.', '');
                                 echo "<tr>";
-                                echo "<th scope='row'>1</th>";
+                                echo "<th scope='row'>$cartcount</th>";
                                 echo "<td>".$cartArray[$key]['M_Name']."</td>";
                                 echo "<td>".$cartArray[$key]['M_Quantity']."</td>";
                                 echo "<td>".$price."</td>";
                                 // $totalPrice = $totalPrice + $cartArray[$key]['M_Price']*$cartArray[$key]['M_Quantity'];
-                                $totalPrice = $cartArray[$key]['M_Price'];
+                                $totalPrice = $totalPrice + $cartArray[$key]['M_Price'];
                                 //echo "<td id=''>  ".$totalPrice." </td>";
                                 echo "</tr>";
-
+                                $cartcount = $cartcount + 1;
                             }
                             $totalPrice = number_format($totalPrice,2);
                             $_SESSION["totalPrice"]= $totalPrice;

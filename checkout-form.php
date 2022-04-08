@@ -126,13 +126,16 @@ include_once 'header.php';
     <script>
         const input = document.getElementById("address_input");
         function handleChange(src) {
+                var address = document.getElementById("address_value");
+
                 if (src.value == "Pick up") {
                     input.className = input.className.replace("activate", "deactivate");
-                    var address = document.getElementById("address_value");
                     address.value = "";
+                    address.removeAttribute("required");
                 }
                 if (src.value == "Delivery") {
                     input.className = input.className.replace("deactivate", "activate");
+                    address.setAttribute("required", "")
                 }
             }
     </script>
