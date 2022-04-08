@@ -25,7 +25,7 @@ $mail->Port = 2525;
 $e_subject = "Reset your website on test.com";
 //$e_msg = "Hi there, click on this <a href=\"http://localhost/Webtech/PHP/Food-Ordering-System-/reset-password.php?token=".$token."&email=".$email."\">link</a>to reset your password.";
 $email_vars = array(
-    'link' =>"<a href=\"http://localhost/Webtech/PHP/Food-Ordering-System-/reset-password.php?token=".$token."&email=".$email."\">",
+    'link' =>"<a href=\"http://localhost/Webtech/PHP/Food-Ordering-System/reset-password.php?token=".$token."&email=".$email."\">",
 );
 $e_msg = file_get_contents("./emailtemplate.html");
 if(isset($email_vars)){
